@@ -1,5 +1,6 @@
 // Global data cache for performance optimization
 import type { CompanyProforma, StatsData, TimelineEvent } from "@/types/placement";
+import { getAssetPath } from "./config";
 
 interface DataCache {
   stats: StatsData | null;
@@ -26,7 +27,7 @@ export async function getStatsData(): Promise<StatsData> {
     return cache.stats;
   }
   
-  const response = await fetch("/data/stats.json");
+  const response = await fetch(getAssetPath("data/stats.json"));
   if (!response.ok) throw new Error("Failed to load stats data");
   cache.stats = await response.json();
   cache.statsLoaded = true;
@@ -38,7 +39,7 @@ export async function getProformaData(): Promise<CompanyProforma[]> {
     return cache.proforma;
   }
   
-  const response = await fetch("/data/linked_company_details.json");
+  const response = await fetch(getAssetPath("data/linked_company_details.json"));
   if (!response.ok) throw new Error("Failed to load company data");
   cache.proforma = await response.json();
   cache.proformaLoaded = true;
@@ -50,7 +51,7 @@ export async function getTimelineData(): Promise<TimelineEvent[]> {
     return cache.timeline;
   }
   
-  const response = await fetch("/data/linked_timeline.json");
+  const response = await fetch(getAssetPath("data/linked_timeline.json"));
   if (!response.ok) throw new Error("Failed to load timeline data");
   cache.timeline = await response.json();
   cache.timelineLoaded = true;

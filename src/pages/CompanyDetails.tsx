@@ -7,14 +7,15 @@ import type { CompanyProforma } from "@/types/placement";
 import { idToBranch } from "@/lib/branchMapping";
 import { getProformaData } from "@/lib/dataCache";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { BASE_PATH } from "@/lib/config";
 
 function RenderHtml({ html }: { html: string }) {
   if (!html || html === "<p><br></p>") return <span className="text-muted-foreground">-</span>;
   
-  // Fix image paths to include /data/ prefix
+  // Fix image paths to include base path and /data/ prefix for GitHub Pages
   const fixedHtml = html.replace(
     /src="(extracted_images|timeline_images)\//g,
-    'src="/data/$1/'
+    `src="${BASE_PATH}data/$1/`
   );
   
   return <div dangerouslySetInnerHTML={{ __html: fixedHtml }} className="prose prose-sm max-w-none dark:prose-invert" />;

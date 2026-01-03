@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import CompanyDetails from "./pages/CompanyDetails";
 import NotFound from "./pages/NotFound";
+import { BASE_PATH } from "./lib/config";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename={BASE_PATH}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/details/:id" element={<CompanyDetails />} />
