@@ -1,17 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { getStatsData, getProformaData, preloadData } from "@/lib/dataCache";
+import { getStatsData, getProformaData, preloadData, preloadProformaData } from "@/lib/dataCache";
 import { getBranchName } from "@/lib/branchMapping";
 import type { CompanyProforma, StudentPlacement } from "@/types/placement";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { StudentHoverCard } from "@/components/StudentHoverCard";
 
-// Preload data on module load
+// Preload stats data on module load (smallest file, shown first)
 preloadData();
 
 const Index = () => {
@@ -23,29 +23,50 @@ const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState<string>("10");
 
-  // Data state
+  // Data state - load separately
   const [statsData, setStatsData] = useState<StudentPlacement[]>([]);
   const [proformaData, setProformaData] = useState<CompanyProforma[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [statsLoading, setStatsLoading] = useState(true);
+  const [proformaLoading, setProformaLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Load stats on mount (critical data)
   useEffect(() => {
-    const loadData = async () => {
+    const loadStats = async () => {
       try {
-        const [stats, proforma] = await Promise.all([
-          getStatsData(),
-          getProformaData()
-        ]);
+        const stats = await getStatsData();
         setStatsData(stats.student || []);
-        setProformaData(proforma);
-        setLoading(false);
+        setStatsLoading(false);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load data");
-        setLoading(false);
+        setStatsLoading(false);
       }
     };
-    loadData();
+    loadStats();
   }, []);
+
+  // Load proforma data when tab changes to proforma (lazy load)
+  useEffect(() => {
+    if (activeTab === "proforma" && proformaData.length === 0 && !proformaLoading) {
+      setProformaLoading(true);
+      getProformaData()
+        .then(data => {
+          setProformaData(data);
+          setProformaLoading(false);
+        })
+        .catch(err => {
+          setError(err instanceof Error ? err.message : "Failed to load proforma data");
+          setProformaLoading(false);
+        });
+    }
+  }, [activeTab, proformaData.length, proformaLoading]);
+
+  // Preload proforma data on hover (for faster tab switch)
+  const handleProformaHover = useCallback(() => {
+    if (proformaData.length === 0) {
+      preloadProformaData();
+    }
+  }, [proformaData.length]);
 
   // Filter stats data
   const filteredStats = useMemo(() => {
@@ -130,7 +151,7 @@ const Index = () => {
     return pages;
   };
 
-  if (loading) {
+  if (statsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="animate-pulse text-muted-foreground">Loading data...</div>
@@ -158,7 +179,11 @@ const Index = () => {
                 <BarChart3 className="h-4 w-4 shrink-0" />
                 Stats
               </TabsTrigger>
-              <TabsTrigger value="proforma" className="flex items-center gap-1.5">
+              <TabsTrigger 
+                value="proforma" 
+                className="flex items-center gap-1.5"
+                onMouseEnter={handleProformaHover}
+              >
                 <Building2 className="h-4 w-4 shrink-0 stroke-[2.5]" />
                 Proforma
               </TabsTrigger>
@@ -224,6 +249,11 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="proforma" className="mt-0">
+            {proformaLoading ? (
+              <div className="rounded-lg border border-border bg-card p-8 flex items-center justify-center">
+                <div className="animate-pulse text-muted-foreground">Loading proforma data...</div>
+              </div>
+            ) : (
             <div className="rounded-lg border border-border bg-card overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -258,6 +288,7 @@ const Index = () => {
                 </table>
               </div>
             </div>
+            )}
           </TabsContent>
 
           {/* Pagination */}

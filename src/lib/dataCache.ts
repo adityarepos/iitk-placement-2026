@@ -101,9 +101,19 @@ export async function getTimelineForCompany(companyName: string): Promise<Timeli
   return index.get(companyName.toLowerCase()) || [];
 }
 
-// Preload all data sets
+// Preload only critical data (stats is smallest and shown first)
 export function preloadData() {
+  // Only preload stats initially - it's the smallest file (~400KB)
+  // Other data will be loaded on-demand when user switches tabs
   getStatsData().catch(console.error);
+}
+
+// Preload proforma data when user is likely to need it
+export function preloadProformaData() {
   getProformaData().catch(console.error);
+}
+
+// Preload timeline data when navigating to company details
+export function preloadTimelineData() {
   buildTimelineIndex().catch(console.error);
 }
