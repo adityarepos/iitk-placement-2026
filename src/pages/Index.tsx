@@ -1,9 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BarChart3, Building2, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getStatsData, getProformaData, preloadData } from "@/lib/dataCache";
 import { getBranchName } from "@/lib/branchMapping";
@@ -15,17 +14,14 @@ import { StudentHoverCard } from "@/components/StudentHoverCard";
 // Preload data on module load
 preloadData();
 
-type PageSize = 10 | 25 | 50 | 100 | "all";
-
 const Index = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   
-  // URL-based state
-  const activeTab = searchParams.get("tab") || "stats";
-  const searchQuery = searchParams.get("search") || "";
-  const currentPage = parseInt(searchParams.get("page") || "1", 10);
-  const pageSize = (searchParams.get("size") || "10") as string;
+  // Simple state
+  const [activeTab, setActiveTab] = useState("stats");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState<string>("10");
 
   // Data state
   const [statsData, setStatsData] = useState<StudentPlacement[]>([]);
@@ -50,18 +46,6 @@ const Index = () => {
     };
     loadData();
   }, []);
-
-  const updateParams = (updates: Record<string, string | undefined>) => {
-    const newParams = new URLSearchParams(searchParams);
-    Object.entries(updates).forEach(([key, value]) => {
-      if (value === undefined || value === "") {
-        newParams.delete(key);
-      } else {
-        newParams.set(key, value);
-      }
-    });
-    setSearchParams(newParams, { replace: true });
-  };
 
   // Filter stats data
   const filteredStats = useMemo(() => {
@@ -88,33 +72,40 @@ const Index = () => {
     );
   }, [proformaData, searchQuery]);
 
+  // Get current data based on active tab
   const currentData = activeTab === "stats" ? filteredStats : filteredProforma;
-  const pageSizeNum = pageSize === "all" ? currentData.length : parseInt(pageSize, 10);
+  const pageSizeNum = pageSize === "all" ? currentData.length || 1 : parseInt(pageSize, 10);
   const totalPages = Math.max(1, Math.ceil(currentData.length / pageSizeNum));
   const validPage = Math.min(Math.max(1, currentPage), totalPages);
   
   const startIdx = (validPage - 1) * pageSizeNum;
   const endIdx = pageSize === "all" ? currentData.length : startIdx + pageSizeNum;
-  const paginatedData = currentData.slice(startIdx, endIdx);
+  
+  // Compute paginated data separately for each tab to avoid type issues
+  const paginatedStats = filteredStats.slice(startIdx, endIdx);
+  const paginatedProforma = filteredProforma.slice(startIdx, endIdx);
 
   const handleTabChange = (tab: string) => {
-    updateParams({ tab, page: "1" });
+    setActiveTab(tab);
+    setCurrentPage(1);
   };
 
   const handleSearch = (value: string) => {
-    updateParams({ search: value || undefined, page: "1" });
+    setSearchQuery(value);
+    setCurrentPage(1);
   };
 
   const handlePageSizeChange = (value: string) => {
-    updateParams({ size: value, page: "1" });
+    setPageSize(value);
+    setCurrentPage(1);
   };
 
   const handlePageChange = (page: number) => {
-    updateParams({ page: page.toString() });
+    setCurrentPage(page);
   };
 
   const handleViewDetails = (id: number) => {
-    navigate(`/details/${id}?${searchParams.toString()}`);
+    navigate(`/details/${id}`);
   };
 
   // Generate page numbers for pagination
@@ -164,11 +155,11 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <TabsList className="grid w-full max-w-[200px] grid-cols-2">
               <TabsTrigger value="stats" className="flex items-center gap-1.5">
-                <BarChart3 className="h-3.5 w-3.5" />
+                <BarChart3 className="h-4 w-4 shrink-0" />
                 Stats
               </TabsTrigger>
               <TabsTrigger value="proforma" className="flex items-center gap-1.5">
-                <Building2 className="h-3.5 w-3.5" />
+                <Building2 className="h-4 w-4 shrink-0 stroke-[2.5]" />
                 Proforma
               </TabsTrigger>
             </TabsList>
@@ -181,8 +172,17 @@ const Index = () => {
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="pl-9 w-64"
+                  className="pl-9 pr-9 w-64"
                 />
+                {searchQuery && (
+                  <button
+                    onClick={() => handleSearch("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
               </div>
               <ThemeToggle />
             </div>
@@ -203,7 +203,7 @@ const Index = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {(paginatedData as StudentPlacement[]).map((student, idx) => (
+                    {paginatedStats.map((student, idx) => (
                       <tr key={`${student.roll_no}-${idx}`} className="border-b border-border hover:bg-accent/30">
                         <td className="px-4 py-3 text-card-foreground">
                           <StudentHoverCard rollNo={student.roll_no} name={student.name}>
@@ -237,7 +237,7 @@ const Index = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {(paginatedData as CompanyProforma[]).map((company, idx) => (
+                    {paginatedProforma.map((company, idx) => (
                       <tr key={`${company.ID}-${idx}`} className="border-b border-border hover:bg-accent/30">
                         <td className="px-4 py-3 text-card-foreground">{company.ID}</td>
                         <td className="px-4 py-3 text-card-foreground">{company.company_name || "-"}</td>

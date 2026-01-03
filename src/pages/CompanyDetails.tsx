@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check, X, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +10,14 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 function RenderHtml({ html }: { html: string }) {
   if (!html || html === "<p><br></p>") return <span className="text-muted-foreground">-</span>;
-  return <div dangerouslySetInnerHTML={{ __html: html }} className="prose prose-sm max-w-none dark:prose-invert" />;
+  
+  // Fix image paths to include /data/ prefix
+  const fixedHtml = html.replace(
+    /src="(extracted_images|timeline_images)\//g,
+    'src="/data/$1/'
+  );
+  
+  return <div dangerouslySetInnerHTML={{ __html: fixedHtml }} className="prose prose-sm max-w-none dark:prose-invert" />;
 }
 
 const PROGRAMS = ["BT", "BS", "DoubleMajor", "DualA", "DualB", "DualC", "MT", "MS", "MSR", "MSc", "MDes", "MBA", "PhD"];
@@ -51,7 +58,6 @@ function EligibilityIcon({ eligible }: { eligible: boolean | null }) {
 export default function CompanyDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
   const [company, setCompany] = useState<CompanyProforma | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -76,9 +82,7 @@ export default function CompanyDetails() {
   }, [id]);
 
   const handleBack = () => {
-    const params = new URLSearchParams(searchParams);
-    params.set("tab", "proforma");
-    navigate(`/?${params.toString()}`);
+    navigate("/");
   };
 
   if (loading) {
