@@ -8,7 +8,7 @@ import { getStatsData, getProformaData, preloadData, preloadProformaData } from 
 import { getBranchName } from "@/lib/branchMapping";
 import type { CompanyProforma, StudentPlacement } from "@/types/placement";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { StudentHoverCard } from "@/components/StudentHoverCard";
 
 // Preload stats data on module load (smallest file, shown first)
@@ -16,12 +16,21 @@ preloadData();
 
 const Index = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Restore state from navigation or use defaults
+  const savedState = location.state as {
+    activeTab?: string;
+    searchQuery?: string;
+    currentPage?: number;
+    pageSize?: string;
+  } | null;
   
   // Simple state
-  const [activeTab, setActiveTab] = useState("stats");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState<string>("10");
+  const [activeTab, setActiveTab] = useState(savedState?.activeTab || "stats");
+  const [searchQuery, setSearchQuery] = useState(savedState?.searchQuery || "");
+  const [currentPage, setCurrentPage] = useState(savedState?.currentPage || 1);
+  const [pageSize, setPageSize] = useState<string>(savedState?.pageSize || "10");
 
   // Data state - load separately
   const [statsData, setStatsData] = useState<StudentPlacement[]>([]);
@@ -126,7 +135,15 @@ const Index = () => {
   };
 
   const handleViewDetails = (id: number) => {
-    navigate(`/details/${id}`);
+    navigate(`/details/${id}`, {
+      state: {
+        fromIndex: true,
+        activeTab,
+        searchQuery,
+        currentPage,
+        pageSize
+      }
+    });
   };
 
   // Generate page numbers for pagination

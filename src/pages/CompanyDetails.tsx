@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, X, Minus } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { ArrowLeft, Check, X, Minus, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { CompanyProforma } from "@/types/placement";
+import type { CompanyProforma, TimelineNotice } from "@/types/placement";
 import { idToBranch } from "@/lib/branchMapping";
 import { getProformaData } from "@/lib/dataCache";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -56,9 +56,134 @@ function EligibilityIcon({ eligible }: { eligible: boolean | null }) {
   return <Minus className="h-4 w-4 text-muted-foreground" />;
 }
 
+function TimelineEvents({ events }: { events: TimelineNotice[] }) {
+  const [expandedEvents, setExpandedEvents] = useState<Set<number>>(new Set());
+  const [overflowingEvents, setOverflowingEvents] = useState<Set<number>>(new Set());
+
+  const toggleEvent = (eventId: number) => {
+    setExpandedEvents(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(eventId)) {
+        newSet.delete(eventId);
+      } else {
+        newSet.add(eventId);
+      }
+      return newSet;
+    });
+  };
+
+  return (
+    <div className="mb-6">
+      <h2 className="text-xl font-semibold mb-4">Notices & Updates</h2>
+      <div className="space-y-4">
+        {events.map((event: TimelineNotice) => {
+          const isExpanded = expandedEvents.has(event.id);
+          const isOverflowing = overflowingEvents.has(event.id);
+          
+          return (
+            <EventCard
+              key={event.id}
+              event={event}
+              isExpanded={isExpanded}
+              isOverflowing={isOverflowing}
+              onToggle={() => toggleEvent(event.id)}
+              onOverflowDetected={(overflow) => {
+                if (overflow && !overflowingEvents.has(event.id)) {
+                  setOverflowingEvents(prev => new Set(prev).add(event.id));
+                }
+              }}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function EventCard({ 
+  event, 
+  isExpanded, 
+  isOverflowing, 
+  onToggle, 
+  onOverflowDetected 
+}: { 
+  event: TimelineNotice;
+  isExpanded: boolean;
+  isOverflowing: boolean;
+  onToggle: () => void;
+  onOverflowDetected: (overflow: boolean) => void;
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      const element = contentRef.current;
+      const isOverflow = element.scrollHeight > element.clientHeight;
+      onOverflowDetected(isOverflow);
+    }
+  }, [onOverflowDetected]);
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base">{event.title}</CardTitle>
+        <div className="text-sm text-muted-foreground mt-1">
+          {new Date(event.created_at).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })}
+        </div>
+        {event.tags && event.tags.trim() && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {event.tags.split(',').map((tag, idx) => (
+              <span
+                key={idx}
+                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary"
+              >
+                {tag.trim()}
+              </span>
+            ))}
+          </div>
+        )}
+      </CardHeader>
+      {event.description && (
+        <CardContent>
+          <div ref={contentRef} className={isExpanded ? '' : 'line-clamp-4'}>
+            <RenderHtml html={event.description} />
+          </div>
+          {isOverflowing && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onToggle}
+              className="mt-2 text-primary hover:text-primary/80"
+            >
+              {isExpanded ? (
+                <>
+                  <ChevronUp className="h-4 w-4 mr-1" />
+                  Show Less
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="h-4 w-4 mr-1" />
+                  Show More
+                </>
+              )}
+            </Button>
+          )}
+        </CardContent>
+      )}
+    </Card>
+  );
+}
+
 export default function CompanyDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const [company, setCompany] = useState<CompanyProforma | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -83,7 +208,27 @@ export default function CompanyDetails() {
   }, [id]);
 
   const handleBack = () => {
-    navigate("/");
+    const previousState = location.state as {
+      fromIndex?: boolean;
+      activeTab?: string;
+      searchQuery?: string;
+      currentPage?: number;
+      pageSize?: string;
+    } | null;
+
+    if (previousState?.fromIndex) {
+      // Navigate back with the preserved state
+      navigate("/", {
+        state: {
+          activeTab: previousState.activeTab,
+          searchQuery: previousState.searchQuery,
+          currentPage: previousState.currentPage,
+          pageSize: previousState.pageSize
+        }
+      });
+    } else {
+      navigate("/");
+    }
   };
 
   if (loading) {
@@ -255,6 +400,10 @@ export default function CompanyDetails() {
             </div>
           </CardContent>
         </Card>
+
+        {company.timeline_events && company.timeline_events.length > 0 && (
+          <TimelineEvents events={company.timeline_events} />
+        )}
       </div>
     </div>
   );

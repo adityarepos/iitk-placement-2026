@@ -44,6 +44,15 @@ export interface CompanyProforma {
   retention_bonus: string;
   deductions: string;
   perks: string;
+  timeline_events?: TimelineNotice[];
+}
+
+export interface TimelineNotice {
+  title: string;
+  description: string;
+  created_at: string;
+  id: number;
+  tags?: string;
 }
 
 export interface TimelineEvent {

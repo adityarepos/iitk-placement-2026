@@ -39,7 +39,7 @@ export async function getProformaData(): Promise<CompanyProforma[]> {
     return cache.proforma;
   }
   
-  const response = await fetch(getAssetPath("data/linked_company_details.json"));
+  const response = await fetch(getAssetPath("data/merged_company_data.json"));
   if (!response.ok) throw new Error("Failed to load company data");
   cache.proforma = await response.json();
   cache.proformaLoaded = true;
