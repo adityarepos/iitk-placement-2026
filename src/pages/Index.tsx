@@ -20,19 +20,37 @@ const Index = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Restore state from navigation or use defaults
-  const savedState = location.state as {
-    activeTab?: string;
-    searchQuery?: string;
-    currentPage?: number;
-    pageSize?: string;
-  } | null;
+  // Restore state from sessionStorage (for browser back) or location.state (for app navigation)
+  const getInitialState = () => {
+    const locationState = location.state as {
+      activeTab?: string;
+      searchQuery?: string;
+      currentPage?: number;
+      pageSize?: string;
+      scrollY?: number;
+    } | null;
+    
+    // Try sessionStorage first (for browser back button)
+    const stored = sessionStorage.getItem('indexPageState');
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        return parsed;
+      } catch {
+        // Fall through to location state
+      }
+    }
+    
+    return locationState;
+  };
+  
+  const initialState = getInitialState();
   
   // Simple state
-  const [activeTab, setActiveTab] = useState(savedState?.activeTab || "stats");
-  const [searchQuery, setSearchQuery] = useState(savedState?.searchQuery || "");
-  const [currentPage, setCurrentPage] = useState(savedState?.currentPage || DEFAULT_PAGE);
-  const [pageSize, setPageSize] = useState<string>(savedState?.pageSize || DEFAULT_PAGE_SIZE);
+  const [activeTab, setActiveTab] = useState(initialState?.activeTab || "stats");
+  const [searchQuery, setSearchQuery] = useState(initialState?.searchQuery || "");
+  const [currentPage, setCurrentPage] = useState(initialState?.currentPage || DEFAULT_PAGE);
+  const [pageSize, setPageSize] = useState<string>(initialState?.pageSize || DEFAULT_PAGE_SIZE);
 
   // Data state - load separately
   const [statsData, setStatsData] = useState<StudentPlacement[]>([]);
@@ -86,6 +104,26 @@ const Index = () => {
         });
     }
   }, [activeTab, proformaData.length, proformaLoading]);
+
+  // Restore scroll position and clear sessionStorage after restoring state
+  useEffect(() => {
+    const stored = sessionStorage.getItem('indexPageState');
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (parsed.scrollY) {
+          // Use requestAnimationFrame to ensure DOM is ready
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: parsed.scrollY, behavior: 'instant' });
+          });
+        }
+      } catch {
+        // Ignore
+      }
+      // Clear after restoring
+      sessionStorage.removeItem('indexPageState');
+    }
+  }, []);
 
   // Preload proforma data on hover (for faster tab switch)
   const handleProformaHover = useCallback(() => {
@@ -150,13 +188,23 @@ const Index = () => {
   };
 
   const handleViewDetails = (id: number) => {
+    // Save current state to sessionStorage for browser back button
+    sessionStorage.setItem('indexPageState', JSON.stringify({
+      activeTab,
+      searchQuery,
+      currentPage,
+      pageSize,
+      scrollY: window.scrollY
+    }));
+    
     navigate(`/details/${id}`, {
       state: {
         fromIndex: true,
         activeTab,
         searchQuery,
         currentPage,
-        pageSize
+        pageSize,
+        scrollY: window.scrollY
       }
     });
   };

@@ -186,6 +186,7 @@ export default function CompanyDetails() {
       searchQuery?: string;
       currentPage?: number;
       pageSize?: string;
+      scrollY?: number;
     } | null;
 
     // Smooth scroll to top before navigation
@@ -199,8 +200,10 @@ export default function CompanyDetails() {
             activeTab: previousState.activeTab,
             searchQuery: previousState.searchQuery,
             currentPage: previousState.currentPage,
-            pageSize: previousState.pageSize
-          }
+            pageSize: previousState.pageSize,
+            scrollY: previousState.scrollY
+          },
+          replace: false
         });
       } else {
         navigate("/");
