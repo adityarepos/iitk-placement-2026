@@ -251,27 +251,27 @@ const Index = () => {
                 <table className="w-full">
                   <thead className="bg-primary">
                     <tr>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Name</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Roll No.</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Company Name</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Profile</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Branch</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Resume Links</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Name</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Roll No.</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Company Name</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Profile</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Branch</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Resume Links</th>
                     </tr>
                   </thead>
                   <tbody>
                     {paginatedStats.map((student, idx) => (
                       <tr key={`${student.roll_no}-${idx}`} className="border-b border-border hover:bg-accent/30">
-                        <td className="px-4 py-3 text-card-foreground">
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">
                           <StudentHoverCard rollNo={student.roll_no} name={student.name}>
                             {student.name}
                           </StudentHoverCard>
                         </td>
-                        <td className="px-4 py-3 text-card-foreground">{student.roll_no}</td>
-                        <td className="px-4 py-3 text-card-foreground">{student.company_name}</td>
-                        <td className="px-4 py-3 text-card-foreground">{student.profile}</td>
-                        <td className="px-4 py-3 text-card-foreground">{getBranchName(student.program_department_id)}</td>
-                        <td className="px-4 py-3 text-card-foreground">-</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{student.roll_no}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{student.company_name}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{student.profile}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{getBranchName(student.program_department_id)}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">-</td>
                       </tr>
                     ))}
                   </tbody>
@@ -321,21 +321,21 @@ const Index = () => {
                 <table className="w-full">
                   <thead className="bg-primary">
                     <tr>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">ID</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Company Name</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Role Name</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">Profile</th>
-                      <th className="text-left text-primary-foreground font-semibold px-4 py-3">View Details</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">ID</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Company Name</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Role Name</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Profile</th>
+                      <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">View Details</th>
                     </tr>
                   </thead>
                   <tbody>
                     {paginatedProforma.map((company, idx) => (
                       <tr key={`${company.ID}-${idx}`} className="border-b border-border hover:bg-accent/30">
-                        <td className="px-4 py-3 text-card-foreground">{company.ID}</td>
-                        <td className="px-4 py-3 text-card-foreground">{company.company_name || "-"}</td>
-                        <td className="px-4 py-3 text-card-foreground">{company.role || "-"}</td>
-                        <td className="px-4 py-3 text-card-foreground">{company.profile || "-"}</td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{company.ID}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{company.company_name || "-"}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{company.role || "-"}</td>
+                        <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">{company.profile || "-"}</td>
+                        <td className="px-3 py-2">
                           <Button
                             size="sm"
                             onClick={() => handleViewDetails(company.ID)}
