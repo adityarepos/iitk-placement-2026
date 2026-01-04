@@ -1,25 +1,19 @@
 // Global data cache for performance optimization
-import type { CompanyProforma, StatsData, TimelineEvent } from "@/types/placement";
+import type { CompanyProforma, StatsData } from "@/types/placement";
 import { getAssetPath } from "./config";
 
 interface DataCache {
   stats: StatsData | null;
   proforma: CompanyProforma[] | null;
-  timeline: TimelineEvent[] | null;
-  timelineIndex: Map<string, TimelineEvent[]> | null;
   statsLoaded: boolean;
   proformaLoaded: boolean;
-  timelineLoaded: boolean;
 }
 
 const cache: DataCache = {
   stats: null,
   proforma: null,
-  timeline: null,
-  timelineIndex: null,
   statsLoaded: false,
   proformaLoaded: false,
-  timelineLoaded: false,
 };
 
 export async function getStatsData(): Promise<StatsData> {
@@ -46,74 +40,12 @@ export async function getProformaData(): Promise<CompanyProforma[]> {
   return cache.proforma!;
 }
 
-export async function getTimelineData(): Promise<TimelineEvent[]> {
-  if (cache.timelineLoaded && cache.timeline) {
-    return cache.timeline;
-  }
-  
-  const response = await fetch(getAssetPath("data/linked_timeline.json"));
-  if (!response.ok) throw new Error("Failed to load timeline data");
-  cache.timeline = await response.json();
-  cache.timelineLoaded = true;
-  return cache.timeline!;
-}
-
-// Build index mapping company names to their timeline events
-async function buildTimelineIndex(): Promise<Map<string, TimelineEvent[]>> {
-  if (cache.timelineIndex) {
-    return cache.timelineIndex;
-  }
-  
-  const [timeline, proforma] = await Promise.all([getTimelineData(), getProformaData()]);
-  const index = new Map<string, TimelineEvent[]>();
-  
-  // Get all company names for matching
-  const companyNames = proforma.map(c => c.company_name?.toLowerCase() || "").filter(Boolean);
-  
-  // Pre-sort timeline by date descending
-  const sortedTimeline = [...timeline].sort(
-    (a, b) => new Date(b.CreatedAt).getTime() - new Date(a.CreatedAt).getTime()
-  );
-  
-  // Index each event by matching company names
-  for (const event of sortedTimeline) {
-    const title = event.title?.toLowerCase() || "";
-    const description = event.description?.toLowerCase() || "";
-    const tags = event.tags?.toLowerCase() || "";
-    const searchText = `${title} ${description} ${tags}`;
-    
-    for (const companyName of companyNames) {
-      if (searchText.includes(companyName)) {
-        const existing = index.get(companyName) || [];
-        existing.push(event);
-        index.set(companyName, existing);
-      }
-    }
-  }
-  
-  cache.timelineIndex = index;
-  return index;
-}
-
-// Get timeline events for a specific company (instant lookup)
-export async function getTimelineForCompany(companyName: string): Promise<TimelineEvent[]> {
-  const index = await buildTimelineIndex();
-  return index.get(companyName.toLowerCase()) || [];
-}
-
 // Preload only critical data (stats is smallest and shown first)
 export function preloadData() {
-  // Only preload stats initially - it's the smallest file (~400KB)
-  // Other data will be loaded on-demand when user switches tabs
   getStatsData().catch(console.error);
 }
 
 // Preload proforma data when user is likely to need it
 export function preloadProformaData() {
   getProformaData().catch(console.error);
-}
-
-// Preload timeline data when navigating to company details
-export function preloadTimelineData() {
-  buildTimelineIndex().catch(console.error);
 }

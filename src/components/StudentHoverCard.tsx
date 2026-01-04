@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
@@ -28,6 +28,18 @@ export const StudentHoverCard = ({ rollNo, name, children }: StudentHoverCardPro
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect if device is mobile/touch-enabled
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   if (!ENABLE_STUDENT_IMAGE_HOVER) {
     return <>{children}</>;
@@ -42,12 +54,33 @@ export const StudentHoverCard = ({ rollNo, name, children }: StudentHoverCardPro
     setImageError(true);
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (isMobile) {
+      e.preventDefault();
+      setIsDialogOpen(true);
+    }
+  };
+
   return (
     <>
       <HoverCard openDelay={200} closeDelay={100}>
         <HoverCardTrigger asChild>
-          <span className="cursor-pointer hover:underline">{children}</span>
+          <span 
+            className="cursor-pointer hover:underline underline-offset-2 transition-colors"
+            onClick={handleClick}
+            role={isMobile ? "button" : undefined}
+            tabIndex={isMobile ? 0 : undefined}
+            onKeyDown={(e) => {
+              if (isMobile && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                setIsDialogOpen(true);
+              }
+            }}
+          >
+            {children}
+          </span>
         </HoverCardTrigger>
+        {!isMobile && (
         <HoverCardContent className="w-auto p-3" side="right">
           <div className="flex flex-col items-center gap-2">
             <div 
@@ -68,6 +101,8 @@ export const StudentHoverCard = ({ rollNo, name, children }: StudentHoverCardPro
                   src={getStudentImageUrl(rollNo)}
                   alt={`${name}'s photo`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                   onLoad={handleImageLoad}
                   onError={handleImageError}
                 />
@@ -78,6 +113,7 @@ export const StudentHoverCard = ({ rollNo, name, children }: StudentHoverCardPro
             </div>
           </div>
         </HoverCardContent>
+        )}
       </HoverCard>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -93,10 +129,13 @@ export const StudentHoverCard = ({ rollNo, name, children }: StudentHoverCardPro
                   src={getStudentImageUrl(rollNo)}
                   alt={`${name}'s photo`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
             </div>
             <div className="text-center">
+              <p className="font-medium text-base">{name}</p>
               <p className="text-sm text-muted-foreground">{rollNo}</p>
             </div>
           </div>

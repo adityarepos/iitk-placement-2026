@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+# IITK Placement 2026
 
-## Project info
+> Student placement statistics and company proformas for IIT Kanpur 2026 placement season.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Live Demo
 
-## How can I edit this code?
+**Visit:** [https://adityarepos.github.io/iitk-placement-2026/](https://adityarepos.github.io/iitk-placement-2026/)
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **📊 Stats Dashboard** - Browse student placement data with advanced search and filtering
+- **🏢 Company Proformas** - Detailed job descriptions, eligibility criteria, and compensation packages
+- **📅 Timeline Events** - Company-specific notices and updates
+- **🎨 Dark Mode** - Seamless dark/light theme switching with smooth transitions
+- **📱 Mobile Responsive** - Optimized for all screen sizes (mobile, tablet, desktop)
+- **⚡ Performance Optimized** - Lazy loading, code splitting, and efficient data caching
+- **♿ Accessible** - WCAG compliant with proper ARIA labels
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React 18** + TypeScript
+- **Vite** - Build tool
+- **Tailwind CSS** + shadcn/ui
+- **React Router** - Client-side routing
+- **next-themes** - Theme management
 
-**Use your preferred IDE**
+## 💻 Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   └── ThemeToggle.tsx
+├── pages/              # Route pages
+│   ├── Index.tsx       # Home (Stats & Proforma)
+│   └── CompanyDetails.tsx
+├── lib/                # Core utilities
+│   ├── dataCache.ts    # Data caching
+│   ├── constants.ts    # App constants
+│   └── config.ts
+├── utils/              # Helper functions
+│   ├── pagination.ts
+│   └── eligibility.ts
+└── types/              # TypeScript types
+```
 
-**Use GitHub Codespaces**
+## 🎯 Performance
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Metric | Value |
+|--------|-------|
+| JS Bundle | ~115 KB gzipped |
+| CSS Bundle | ~8.6 KB gzipped |
+| Build Time | ~2 seconds |
+| Dependencies | 327 packages |
 
-## What technologies are used for this project?
+## 📊 Data Updates
 
-This project is built with:
+1. Update `public/data/raw/*.json`
+2. Run `python public/data/raw/merger_script.py`
+3. Build: `npm run build`
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📝 License
 
-## How can I deploy this project?
+MIT
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Note:** Phase 1 data only

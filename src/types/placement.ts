@@ -54,18 +54,3 @@ export interface TimelineNotice {
   id: number;
   tags?: string;
 }
-
-export interface TimelineEvent {
-  ID: number;
-  CreatedAt: string;
-  UpdatedAt: string;
-  DeletedAt: string | null;
-  recruitment_cycle_id: number;
-  title: string;
-  description: string;
-  tags: string;
-  attachment: string;
-  created_by: string;
-  last_reminder_at: number;
-  deadline: number;
-}

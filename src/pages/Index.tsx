@@ -6,6 +6,8 @@ import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X } from "luci
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getStatsData, getProformaData, preloadData, preloadProformaData } from "@/lib/dataCache";
 import { getBranchName } from "@/lib/branchMapping";
+import { PAGE_SIZES, DEFAULT_PAGE_SIZE, DEFAULT_PAGE } from "@/lib/constants";
+import { getPaginationPages, getPaginationMeta } from "@/utils/pagination";
 import type { CompanyProforma, StudentPlacement } from "@/types/placement";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -29,8 +31,8 @@ const Index = () => {
   // Simple state
   const [activeTab, setActiveTab] = useState(savedState?.activeTab || "stats");
   const [searchQuery, setSearchQuery] = useState(savedState?.searchQuery || "");
-  const [currentPage, setCurrentPage] = useState(savedState?.currentPage || 1);
-  const [pageSize, setPageSize] = useState<string>(savedState?.pageSize || "10");
+  const [currentPage, setCurrentPage] = useState(savedState?.currentPage || DEFAULT_PAGE);
+  const [pageSize, setPageSize] = useState<string>(savedState?.pageSize || DEFAULT_PAGE_SIZE);
 
   // Data state - load separately
   const [statsData, setStatsData] = useState<StudentPlacement[]>([]);
@@ -104,12 +106,9 @@ const Index = () => {
 
   // Get current data based on active tab
   const currentData = activeTab === "stats" ? filteredStats : filteredProforma;
-  const pageSizeNum = pageSize === "all" ? currentData.length || 1 : parseInt(pageSize, 10);
-  const totalPages = Math.max(1, Math.ceil(currentData.length / pageSizeNum));
-  const validPage = Math.min(Math.max(1, currentPage), totalPages);
-  
-  const startIdx = (validPage - 1) * pageSizeNum;
-  const endIdx = pageSize === "all" ? currentData.length : startIdx + pageSizeNum;
+  const pageSizeNum = pageSize === "all" ? currentData.length : parseInt(pageSize, 10);
+  const paginationMeta = getPaginationMeta(currentPage, pageSizeNum, currentData.length);
+  const { totalPages, validPage, startIdx, endIdx } = paginationMeta;
   
   // Compute paginated data separately for each tab to avoid type issues
   const paginatedStats = filteredStats.slice(startIdx, endIdx);
@@ -132,6 +131,7 @@ const Index = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleViewDetails = (id: number) => {
@@ -146,27 +146,10 @@ const Index = () => {
     });
   };
 
-  // Generate page numbers for pagination
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = [];
-    const maxVisible = 5;
-    
-    if (totalPages <= maxVisible + 2) {
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      pages.push(1);
-      if (validPage > 3) pages.push("...");
-      
-      const start = Math.max(2, validPage - 1);
-      const end = Math.min(totalPages - 1, validPage + 1);
-      
-      for (let i = start; i <= end; i++) pages.push(i);
-      
-      if (validPage < totalPages - 2) pages.push("...");
-      pages.push(totalPages);
-    }
-    return pages;
-  };
+  const pageNumbers = useMemo(
+    () => getPaginationPages(validPage, totalPages),
+    [validPage, totalPages]
+  );
 
   if (statsLoading) {
     return (
@@ -185,13 +168,14 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col page-transition">
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-6 flex-1">
-        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+      <main className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full animate-fade-in">
           {/* Tabs + Search Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-            <TabsList className="grid w-full max-w-[200px] grid-cols-2">
+          <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <TabsList className="grid w-full sm:w-auto sm:max-w-[200px] grid-cols-2">
               <TabsTrigger value="stats" className="flex items-center gap-1.5">
                 <BarChart3 className="h-4 w-4 shrink-0" />
                 Stats
@@ -206,15 +190,15 @@ const Index = () => {
               </TabsTrigger>
             </TabsList>
 
-            <div className="flex items-center gap-3">
-              <div className="relative">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="relative flex-1 sm:flex-initial">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="pl-9 pr-9 w-64"
+                  className="pl-9 pr-9 w-full sm:w-64"
                 />
                 {searchQuery && (
                   <button
@@ -228,10 +212,41 @@ const Index = () => {
               </div>
               <ThemeToggle />
             </div>
+            </div>
           </div>
 
           <TabsContent value="stats" className="mt-0">
-            <div className="rounded-lg border border-border bg-card overflow-hidden">
+            {/* Mobile Card View */}
+            <div className="block md:hidden space-y-3">
+              {paginatedStats.map((student, idx) => (
+                <div key={`${student.roll_no}-${idx}`} className="rounded-lg border border-border bg-card p-4 space-y-2">
+                  <div className="flex justify-between items-start gap-2">
+                    <div className="font-medium text-card-foreground">
+                      <StudentHoverCard rollNo={student.roll_no} name={student.name}>
+                        {student.name}
+                      </StudentHoverCard>
+                    </div>
+                    <div className="text-sm text-muted-foreground shrink-0">{student.roll_no}</div>
+                  </div>
+                  <div className="text-sm space-y-1">
+                    <div className="flex gap-2">
+                      <span className="text-muted-foreground min-w-[80px]">Company:</span>
+                      <span className="text-card-foreground">{student.company_name}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-muted-foreground min-w-[80px]">Profile:</span>
+                      <span className="text-card-foreground">{student.profile}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-muted-foreground min-w-[80px]">Branch:</span>
+                      <span className="text-card-foreground">{getBranchName(student.program_department_id)}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Desktop Table View */}
+            <div className="hidden md:block rounded-lg border border-border bg-card overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-primary">
@@ -271,7 +286,37 @@ const Index = () => {
                 <div className="animate-pulse text-muted-foreground">Loading proforma data...</div>
               </div>
             ) : (
-            <div className="rounded-lg border border-border bg-card overflow-hidden">
+            <>
+            {/* Mobile Card View */}
+            <div className="block md:hidden space-y-3">
+              {paginatedProforma.map((company, idx) => (
+                <div key={`${company.ID}-${idx}`} className="rounded-lg border border-border bg-card p-4 space-y-3">
+                  <div className="flex justify-between items-start gap-2">
+                    <div className="font-medium text-card-foreground">{company.company_name || "-"}</div>
+                    <div className="text-xs text-muted-foreground shrink-0">ID: {company.ID}</div>
+                  </div>
+                  <div className="text-sm space-y-1">
+                    <div className="flex gap-2">
+                      <span className="text-muted-foreground min-w-[70px]">Role:</span>
+                      <span className="text-card-foreground">{company.role || "-"}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-muted-foreground min-w-[70px]">Profile:</span>
+                      <span className="text-card-foreground">{company.profile || "-"}</span>
+                    </div>
+                  </div>
+                  <Button
+                    size="sm"
+                    onClick={() => handleViewDetails(company.ID)}
+                    className="w-full text-xs"
+                  >
+                    View Details
+                  </Button>
+                </div>
+              ))}
+            </div>
+            {/* Desktop Table View */}
+            <div className="hidden md:block rounded-lg border border-border bg-card overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-primary">
@@ -305,46 +350,46 @@ const Index = () => {
                 </table>
               </div>
             </div>
+            </>
             )}
           </TabsContent>
 
           {/* Pagination */}
-          <div className="flex items-center justify-between mt-4">
-            <div className="text-sm text-muted-foreground">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mt-4">
+            <div className="text-xs sm:text-sm text-muted-foreground order-2 sm:order-1">
               Showing {startIdx + 1} to {Math.min(endIdx, currentData.length)} of {currentData.length} entries
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto order-1 sm:order-2">
               <Select value={pageSize} onValueChange={handlePageSizeChange}>
-                <SelectTrigger className="w-20 h-8">
+                <SelectTrigger className="w-16 sm:w-20 h-8 text-xs sm:text-sm">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="10">10</SelectItem>
-                  <SelectItem value="25">25</SelectItem>
-                  <SelectItem value="50">50</SelectItem>
-                  <SelectItem value="100">100</SelectItem>
-                  <SelectItem value="all">All</SelectItem>
+                  {PAGE_SIZES.map(({ value, label }) => (
+                    <SelectItem key={value} value={value}>{label}</SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-initial justify-end">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => handlePageChange(validPage - 1)}
                   disabled={validPage === 1}
+                  className="h-8 w-8 sm:w-9 p-0"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
-                {getPageNumbers().map((page, idx) => 
+                {pageNumbers.map((page, idx) => 
                   page === "..." ? (
-                    <span key={`ellipsis-${idx}`} className="px-2 text-muted-foreground">...</span>
+                    <span key={`ellipsis-${idx}`} className="px-1 sm:px-2 text-xs sm:text-sm text-muted-foreground">...</span>
                   ) : (
                     <Button
                       key={page}
                       variant={page === validPage ? "default" : "outline"}
                       size="sm"
                       onClick={() => handlePageChange(page as number)}
-                      className="min-w-[36px]"
+                      className="min-w-[28px] sm:min-w-[36px] h-8 text-xs sm:text-sm px-2 sm:px-3"
                     >
                       {page}
                     </Button>
@@ -355,8 +400,9 @@ const Index = () => {
                   size="sm"
                   onClick={() => handlePageChange(validPage + 1)}
                   disabled={validPage === totalPages}
+                  className="h-8 w-8 sm:w-9 p-0"
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </div>
             </div>
@@ -365,8 +411,8 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card py-4">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-border bg-card py-3 sm:py-4">
+        <div className="container mx-auto px-3 sm:px-4 text-center text-xs sm:text-sm text-muted-foreground">
           IITK Placement 2026 (only Phase 1 right now)
         </div>
       </footer>

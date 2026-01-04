@@ -4,147 +4,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 209 40% 96%;
     --foreground: 222 47% 11%;
-
     --card: 210 40% 98%;
     --card-foreground: 222 47% 11%;
-
     --popover: 214 31% 91%;
     --popover-foreground: 222 47% 11%;
-
     --primary: 216 19% 26%;
     --primary-foreground: 210 19% 98%;
-
     --secondary: 215 19% 34%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 215 20% 65%;
     --muted-foreground: 222 47% 11%;
-
     --accent: 210 40% 98%;
     --accent-foreground: 215 16% 46%;
-
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 85% 97%;
-
     --border: 212 26% 83%;
     --input: 212 26% 83%;
     --ring: 216 19% 26%;
-
     --radius: 0rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 222 47% 11%;
-
-    --sidebar-primary: 216 19% 26%;
-
-    --sidebar-primary-foreground: 210 19% 98%;
-
-    --sidebar-accent: 215 19% 34%;
-
-    --sidebar-accent-foreground: 210 40% 98%;
-
-    --sidebar-border: 212 26% 83%;
-
-    --sidebar-ring: 216 19% 26%;
-
-    --chart-1: 217 10% 64%;
-
-    --chart-2: 215 20% 65%;
-
-    --chart-3: 215 16% 46%;
-
-    --chart-4: 219 8% 46%;
-
-    --chart-5: 215 19% 34%;
-
-    --sidebar: 210 40% 98%;
-
     --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-
     --font-serif: 'Crimson Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-
     --font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-
-    --tracking-normal: 0em;
-
-    --spacing: 0.25rem;
   }
 
   .dark {
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
-
     --card: 217 32% 17%;
     --card-foreground: 210 40% 98%;
-
     --popover: 215 24% 26%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 212 26% 83%;
     --primary-foreground: 228 84% 4%;
-
     --secondary: 215 19% 34%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 215 16% 46%;
     --muted-foreground: 210 40% 98%;
-
     --accent: 228 84% 4%;
     --accent-foreground: 215 20% 65%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 85% 97%;
-
     --border: 215 19% 34%;
     --input: 215 19% 34%;
     --ring: 212 26% 83%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 212 26% 83%;
-    --sidebar-primary-foreground: 228 84% 4%;
-    --sidebar-accent: 215 20% 65%;
-    --sidebar-accent-foreground: 228 84% 4%;
-    --sidebar-border: 215 19% 34%;
-    --sidebar-ring: 212 26% 83%;
-    --chart-1: 215 12% 83%;
-    --chart-2: 212 26% 83%;
-    --chart-3: 215 20% 65%;
-    --chart-4: 217 10% 64%;
-    --chart-5: 215 16% 46%;
-    --sidebar: 217 32% 17%;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   }
 }
 
@@ -152,9 +58,23 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
+  html {
+    @apply antialiased scroll-smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Smooth transitions for theme switching */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
   }
 }
 
@@ -162,71 +82,54 @@ All colors MUST be HSL.
 .gridjs-wrapper {
   @apply overflow-x-auto;
 }
-
 .gridjs-container {
   @apply font-sans;
 }
-
 .gridjs-search {
   @apply mb-4;
 }
-
 .gridjs-search-input {
   @apply w-full max-w-sm rounded border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring;
 }
-
 .gridjs-table {
   @apply w-full border-collapse;
 }
-
 .gridjs-thead {
   @apply bg-primary;
 }
-
 .gridjs-th {
   @apply bg-primary text-primary-foreground font-semibold;
 }
-
 .gridjs-th-content {
   @apply flex items-center gap-2;
 }
-
 .gridjs-td {
   @apply bg-card text-card-foreground;
 }
-
 .gridjs-tr:hover .gridjs-td {
   @apply bg-accent/50;
 }
-
 .gridjs-pagination {
   @apply mt-4 flex items-center justify-between;
 }
-
 .gridjs-pages {
   @apply flex gap-1;
 }
-
 .gridjs-pages button {
   @apply rounded border border-border bg-card px-3 py-1 text-sm text-card-foreground hover:bg-accent;
 }
-
 .gridjs-pages button.gridjs-currentPage {
   @apply bg-primary text-primary-foreground;
 }
-
 .gridjs-summary {
   @apply text-sm text-muted-foreground;
 }
-
 .gridjs-footer {
   @apply mt-4 border-t border-border pt-4;
 }
-
 .gridjs-sort {
   @apply ml-1 inline-flex;
 }
-
 .gridjs-sort-asc,
 .gridjs-sort-desc {
   @apply text-primary-foreground;
@@ -234,5 +137,73 @@ All colors MUST be HSL.
 
 /* View Details Button */
 .view-details-btn {
-  @apply rounded bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-secondary cursor-pointer;
+  @apply rounded bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground cursor-pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.view-details-btn:hover {
+  @apply bg-secondary;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth table row transitions */
+.gridjs-tr,
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+/* Smooth card hover effects */
+.hover\:bg-accent\/30:hover {
+  transition: background-color 0.2s ease;
+}
+/* Fade-in animation for page content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Stagger animation for list items */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: fadeIn 0.4s ease-in-out;
+}
+/* Mobile-friendly prose content */
+.prose {
+  @apply text-sm sm:text-base;
+}
+
+.prose img {
+  @apply max-w-full h-auto;
+}
+
+.prose table {
+  @apply text-xs sm:text-sm;
+  @apply block overflow-x-auto;
+}
+
+.prose th,
+.prose td {
+  @apply px-2 py-1 sm:px-3 sm:py-2;
 }
