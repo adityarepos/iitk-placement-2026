@@ -39,6 +39,7 @@ const Index = () => {
   const [proformaData, setProformaData] = useState<CompanyProforma[]>([]);
   const [statsLoading, setStatsLoading] = useState(true);
   const [proformaLoading, setProformaLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
   // Load stats on mount (critical data)
@@ -60,14 +61,28 @@ const Index = () => {
   useEffect(() => {
     if (activeTab === "proforma" && proformaData.length === 0 && !proformaLoading) {
       setProformaLoading(true);
+      setLoadingProgress(0);
+      
+      // Simulate progress for better UX
+      const progressInterval = setInterval(() => {
+        setLoadingProgress(prev => Math.min(prev + 10, 90));
+      }, 200);
+      
       getProformaData()
         .then(data => {
+          clearInterval(progressInterval);
+          setLoadingProgress(100);
           setProformaData(data);
-          setProformaLoading(false);
+          setTimeout(() => {
+            setProformaLoading(false);
+            setLoadingProgress(0);
+          }, 300);
         })
         .catch(err => {
+          clearInterval(progressInterval);
           setError(err instanceof Error ? err.message : "Failed to load proforma data");
           setProformaLoading(false);
+          setLoadingProgress(0);
         });
     }
   }, [activeTab, proformaData.length, proformaLoading]);
@@ -282,8 +297,20 @@ const Index = () => {
 
           <TabsContent value="proforma" className="mt-0">
             {proformaLoading ? (
-              <div className="rounded-lg border border-border bg-card p-8 flex items-center justify-center">
-                <div className="animate-pulse text-muted-foreground">Loading proforma data...</div>
+              <div className="rounded-lg border border-border bg-card p-8">
+                <div className="flex flex-col items-center justify-center gap-4">
+                  <div className="w-full max-w-xs">
+                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-primary transition-all duration-300 ease-out"
+                        style={{ width: `${loadingProgress}%` }}
+                      />
+                    </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Loading company data... {loadingProgress}%
+                  </div>
+                </div>
               </div>
             ) : (
             <>

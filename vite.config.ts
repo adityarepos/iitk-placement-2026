@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { copyFileSync } from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -9,7 +10,21 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'copy-gzip',
+      closeBundle() {
+        // Copy pre-compressed files to dist
+        try {
+          copyFileSync('public/data/stats.json.gz', 'dist/data/stats.json.gz');
+          copyFileSync('public/data/merged_company_data.json.gz', 'dist/data/merged_company_data.json.gz');
+        } catch (e) {
+          console.warn('Could not copy gzip files:', e);
+        }
+      }
+    }
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run compress && vite build",
+    "compress": "gzip -9 -f public/data/stats.json && gzip -9 -f public/data/merged_company_data.json && gunzip -c public/data/stats.json.gz > public/data/stats.json && gunzip -c public/data/merged_company_data.json.gz > public/data/merged_company_data.json",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
