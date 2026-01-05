@@ -12025,6 +12025,17 @@
             "company_name": "Google India",
             "profile": "PIO-PPO",
             "type": "PIO-PPO"
+        },
+        {
+            "id": 18270,
+            "name": "Aniket Nandi",
+            "email": "aniketn22@iitk.ac.in",
+            "roll_no": "220141",
+            "program_department_id": 8,
+            "secondary_program_department_id": 0,
+            "company_name": "Mitsubishi Heavy Industries India Private Limited",
+            "profile": "PIO-PPO",
+            "type": "PIO-PPO"
         }
     ]
 }
