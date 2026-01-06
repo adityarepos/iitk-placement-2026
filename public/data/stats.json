@@ -12036,6 +12036,17 @@
             "company_name": "Mitsubishi Heavy Industries India Private Limited",
             "profile": "PIO-PPO",
             "type": "PIO-PPO"
+        },
+        {
+            "id": 16539,
+            "name": "Sevak",
+            "email": "bssevak24@iitk.ac.in",
+            "roll_no": "241110065",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "Amway India",
+            "profile": "Technology (Software Development)",
+            "type": "Recruited"
         }
     ]
 }
