@@ -4,7 +4,7 @@
 
 ## 🚀 Live Demo
 
-**Visit:** [https://spontaneous-pudding-5a399a.netlify.app/](https://spontaneous-pudding-5a399a.netlify.app/)
+**Visit:** [https://iitk-spo26.netlify.app/](https://iitk-spo26.netlify.app/)
 
 ## ✨ Features
 
