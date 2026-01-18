@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X, ExternalLink } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getStatsData, getProformaData, preloadData, preloadProformaData } from "@/lib/dataCache";
 import { getBranchName } from "@/lib/branchMapping";
@@ -238,22 +238,34 @@ const Index = () => {
           {/* Tabs + Search Row */}
           <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <TabsList className="grid w-full sm:w-auto sm:max-w-[200px] grid-cols-2">
-              <TabsTrigger value="stats" className="flex items-center gap-1.5">
-                <BarChart3 className="h-4 w-4 shrink-0" />
-                Stats
-              </TabsTrigger>
-              <TabsTrigger 
-                value="proforma" 
-                className="flex items-center gap-1.5"
-                onMouseEnter={handleProformaHover}
+            <div className="flex items-center gap-3">
+              <TabsList className="grid w-full sm:w-auto sm:max-w-[200px] grid-cols-2">
+                <TabsTrigger value="stats" className="flex items-center gap-1.5">
+                  <BarChart3 className="h-4 w-4 shrink-0" />
+                  Stats
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="proforma" 
+                  className="flex items-center gap-1.5"
+                  onMouseEnter={handleProformaHover}
+                >
+                  <Building2 className="h-4 w-4 shrink-0 stroke-[2.5]" />
+                  Proforma
+                </TabsTrigger>
+              </TabsList>
+              
+              <a
+                href="https://spo-iitk-2025.github.io/iitk-2025-placement/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border bg-background hover:bg-accent hover:text-accent-foreground transition-colors text-sm"
               >
-                <Building2 className="h-4 w-4 shrink-0 stroke-[2.5]" />
-                Proforma
-              </TabsTrigger>
-            </TabsList>
+                <ExternalLink className="h-4 w-4" />
+                Placement 2025
+              </a>
+            </div>
 
-            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
               <div className="relative flex-1 sm:flex-initial">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
