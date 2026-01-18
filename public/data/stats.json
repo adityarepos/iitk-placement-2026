@@ -10,7 +10,7 @@
             "program_department_id": 4,
             "total": 107,
             "pre_offer": 13,
-            "recruited": 67
+            "recruited": 69
         },
         {
             "program_department_id": 83,
@@ -46,7 +46,7 @@
             "program_department_id": 6,
             "total": 198,
             "pre_offer": 63,
-            "recruited": 104
+            "recruited": 107
         },
         {
             "program_department_id": 107,
@@ -130,7 +130,7 @@
             "program_department_id": 2,
             "total": 59,
             "pre_offer": 8,
-            "recruited": 23
+            "recruited": 25
         },
         {
             "program_department_id": 124,
@@ -142,7 +142,7 @@
             "program_department_id": 16,
             "total": 93,
             "pre_offer": 0,
-            "recruited": 17
+            "recruited": 18
         },
         {
             "program_department_id": 128,
@@ -172,19 +172,19 @@
             "program_department_id": 11,
             "total": 22,
             "pre_offer": 0,
-            "recruited": 8
-        },
-        {
-            "program_department_id": 99,
-            "total": 15,
-            "pre_offer": 0,
-            "recruited": 13
+            "recruited": 9
         },
         {
             "program_department_id": 42,
             "total": 4,
             "pre_offer": 0,
             "recruited": 3
+        },
+        {
+            "program_department_id": 99,
+            "total": 15,
+            "pre_offer": 0,
+            "recruited": 13
         },
         {
             "program_department_id": 117,
@@ -205,6 +205,12 @@
             "recruited": 2
         },
         {
+            "program_department_id": 46,
+            "total": 5,
+            "pre_offer": 1,
+            "recruited": 4
+        },
+        {
             "program_department_id": 40,
             "total": 1,
             "pre_offer": 0,
@@ -223,16 +229,10 @@
             "recruited": 0
         },
         {
-            "program_department_id": 46,
-            "total": 5,
-            "pre_offer": 1,
-            "recruited": 4
-        },
-        {
             "program_department_id": 43,
             "total": 15,
             "pre_offer": 0,
-            "recruited": 10
+            "recruited": 11
         },
         {
             "program_department_id": 32,
@@ -244,7 +244,7 @@
             "program_department_id": 7,
             "total": 82,
             "pre_offer": 5,
-            "recruited": 42
+            "recruited": 43
         },
         {
             "program_department_id": 9,
@@ -283,16 +283,16 @@
             "recruited": 4
         },
         {
-            "program_department_id": 26,
-            "total": 5,
-            "pre_offer": 0,
-            "recruited": 2
-        },
-        {
             "program_department_id": 12,
             "total": 60,
             "pre_offer": 12,
-            "recruited": 31
+            "recruited": 32
+        },
+        {
+            "program_department_id": 26,
+            "total": 5,
+            "pre_offer": 0,
+            "recruited": 3
         },
         {
             "program_department_id": 85,
@@ -322,7 +322,7 @@
             "program_department_id": 19,
             "total": 57,
             "pre_offer": 10,
-            "recruited": 23
+            "recruited": 25
         },
         {
             "program_department_id": 122,
@@ -358,7 +358,7 @@
             "program_department_id": 3,
             "total": 135,
             "pre_offer": 5,
-            "recruited": 70
+            "recruited": 73
         },
         {
             "program_department_id": 17,
@@ -394,7 +394,7 @@
             "program_department_id": 1,
             "total": 56,
             "pre_offer": 6,
-            "recruited": 32
+            "recruited": 33
         },
         {
             "program_department_id": 104,
@@ -412,13 +412,13 @@
             "program_department_id": 5,
             "total": 136,
             "pre_offer": 49,
-            "recruited": 74
+            "recruited": 76
         },
         {
             "program_department_id": 18,
             "total": 72,
             "pre_offer": 3,
-            "recruited": 49
+            "recruited": 53
         },
         {
             "program_department_id": 110,
@@ -451,22 +451,22 @@
             "recruited": 1
         },
         {
-            "program_department_id": 91,
-            "total": 4,
-            "pre_offer": 0,
-            "recruited": 1
-        },
-        {
             "program_department_id": 58,
             "total": 2,
             "pre_offer": 0,
             "recruited": 0
         },
         {
+            "program_department_id": 91,
+            "total": 4,
+            "pre_offer": 0,
+            "recruited": 1
+        },
+        {
             "program_department_id": 8,
-            "total": 156,
-            "pre_offer": 23,
-            "recruited": 88
+            "total": 157,
+            "pre_offer": 24,
+            "recruited": 92
         },
         {
             "program_department_id": 200,
@@ -738,6 +738,17 @@
             "secondary_program_department_id": 0,
             "company_name": "CoreOps.ai",
             "profile": "Software Engineer-AI",
+            "type": "Recruited"
+        },
+        {
+            "id": 16272,
+            "name": "Madhuvarasu Venkata Abhiram",
+            "email": "mvabhiram22@iitk.ac.in",
+            "roll_no": "220599",
+            "program_department_id": 6,
+            "secondary_program_department_id": 0,
+            "company_name": "Spotnana",
+            "profile": "Software Engineer",
             "type": "Recruited"
         },
         {
@@ -1621,6 +1632,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16446,
+            "name": "Manish",
+            "email": "kmanish22@iitk.ac.in",
+            "roll_no": "220619",
+            "program_department_id": 8,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
             "id": 16448,
             "name": "Manas Ranjan",
             "email": "manasr22@iitk.ac.in",
@@ -2127,6 +2149,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16515,
+            "name": "Khushi Jaydeep Pujara",
+            "email": "khushijp24@iitk.ac.in",
+            "roll_no": "241110034",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "64squares",
+            "profile": "Business Analyst",
+            "type": "Recruited"
+        },
+        {
             "id": 16516,
             "name": "Nayan Das",
             "email": "nayand24@iitk.ac.in",
@@ -2281,6 +2314,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16539,
+            "name": "Sevak",
+            "email": "bssevak24@iitk.ac.in",
+            "roll_no": "241110065",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "Amway India",
+            "profile": "Technology (Software Development)",
+            "type": "Recruited"
+        },
+        {
             "id": 16540,
             "name": "Vraj Patel",
             "email": "vrajb24@iitk.ac.in",
@@ -2311,6 +2355,17 @@
             "secondary_program_department_id": 0,
             "company_name": "SAP Labs",
             "profile": "Associate Platform Engineer",
+            "type": "Recruited"
+        },
+        {
+            "id": 16543,
+            "name": "Tippireddy Yashwanth",
+            "email": "yashwantht24@iitk.ac.in",
+            "roll_no": "241110082",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "Spotnana",
+            "profile": "Software Engineer",
             "type": "Recruited"
         },
         {
@@ -2710,6 +2765,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16616,
+            "name": "Kanishk Sharma",
+            "email": "kanishks24@iitk.ac.in",
+            "roll_no": "241160004",
+            "program_department_id": 26,
+            "secondary_program_department_id": 0,
+            "company_name": "BHARAT ELECTRONICS LIMITED",
+            "profile": "Member (Research Staff) - MRS",
+            "type": "Recruited"
+        },
+        {
             "id": 16618,
             "name": "Md Musharraf Iqubal",
             "email": "mdmiqubal24@iitk.ac.in",
@@ -3026,6 +3092,17 @@
             "secondary_program_department_id": 2,
             "company_name": "Vantage Research",
             "profile": "Scientist-Modeller-2",
+            "type": "Recruited"
+        },
+        {
+            "id": 16716,
+            "name": "Saksham Gupta",
+            "email": "sakshamg21@iitk.ac.in",
+            "roll_no": "218070907",
+            "program_department_id": 43,
+            "secondary_program_department_id": 6,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
             "type": "Recruited"
         },
         {
@@ -3532,6 +3609,17 @@
             "secondary_program_department_id": 0,
             "company_name": "ICICI Bank",
             "profile": "Manager -1",
+            "type": "Recruited"
+        },
+        {
+            "id": 16775,
+            "name": "Narendra Kumar Ahirwar",
+            "email": "narendrak22@iitk.ac.in",
+            "roll_no": "220696",
+            "program_department_id": 3,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
             "type": "Recruited"
         },
         {
@@ -4514,6 +4602,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16944,
+            "name": "Pulkit Dhayal",
+            "email": "pulkitd22@iitk.ac.in",
+            "roll_no": "220834",
+            "program_department_id": 3,
+            "secondary_program_department_id": 0,
+            "company_name": "Tavant Technologies",
+            "profile": "Software Engineer Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 16945,
             "name": "Purav Jangir",
             "email": "puravj22@iitk.ac.in",
@@ -4544,6 +4643,17 @@
             "secondary_program_department_id": 0,
             "company_name": "SEDEMAC Mechatronics Pvt. Ltd.",
             "profile": "Engineer, R\u0026D (Rnd-SysE-COE-AppE-CSA) and Engineer, Test Automation",
+            "type": "Recruited"
+        },
+        {
+            "id": 16952,
+            "name": "Pushkar Aggarwal",
+            "email": "pushkaragg22@iitk.ac.in",
+            "roll_no": "220839",
+            "program_department_id": 2,
+            "secondary_program_department_id": 0,
+            "company_name": "Spotnana",
+            "profile": "Software Engineer",
             "type": "Recruited"
         },
         {
@@ -5284,6 +5394,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17056,
+            "name": "Divyanshi Diwakar",
+            "email": "divyanshi24@iitk.ac.in",
+            "roll_no": "241030034",
+            "program_department_id": 16,
+            "secondary_program_department_id": 0,
+            "company_name": "Larsen \u0026 Toubro Limited",
+            "profile": "PGET",
+            "type": "Recruited"
+        },
+        {
             "id": 17060,
             "name": "Satyam Kumar",
             "email": "satyamkmr22@iitk.ac.in",
@@ -5655,6 +5776,17 @@
             "secondary_program_department_id": 0,
             "company_name": "LTIMindtree",
             "profile": "AI and Cloud Based Solutions",
+            "type": "Recruited"
+        },
+        {
+            "id": 17118,
+            "name": "Siddhant Patel",
+            "email": "siddhant22@iitk.ac.in",
+            "roll_no": "221051",
+            "program_department_id": 12,
+            "secondary_program_department_id": 0,
+            "company_name": "Bayer",
+            "profile": "Graduate Engineering Trainee",
             "type": "Recruited"
         },
         {
@@ -6142,6 +6274,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17214,
+            "name": "Aviral Taneja",
+            "email": "aviralt24@iitk.ac.in",
+            "roll_no": "241040012",
+            "program_department_id": 19,
+            "secondary_program_department_id": 19,
+            "company_name": "BHARAT ELECTRONICS LIMITED",
+            "profile": "Member (Research Staff) - MRS",
+            "type": "Recruited"
+        },
+        {
             "id": 17217,
             "name": "Mohit Tepan",
             "email": "mohitt24@iitk.ac.in",
@@ -6593,6 +6736,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17280,
+            "name": "Adhyatm Singh",
+            "email": "adhyatmsi22@iitk.ac.in",
+            "roll_no": "220057",
+            "program_department_id": 3,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
             "id": 17281,
             "name": "Aditi Verma",
             "email": "aditive22@iitk.ac.in",
@@ -6714,6 +6868,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17295,
+            "name": "Aditya Ranjan",
+            "email": "raditya22@iitk.ac.in",
+            "roll_no": "220079",
+            "program_department_id": 11,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
             "id": 17297,
             "name": "Ahmad Raza",
             "email": "ahmadr22@iitk.ac.in",
@@ -6733,6 +6898,17 @@
             "secondary_program_department_id": 0,
             "company_name": "BlackRock",
             "profile": "Analyst_Data Engineer AI Dev (Aladdin Data)",
+            "type": "Recruited"
+        },
+        {
+            "id": 17299,
+            "name": "Ajay Singh Panwar",
+            "email": "ajaysp22@iitk.ac.in",
+            "roll_no": "220091",
+            "program_department_id": 7,
+            "secondary_program_department_id": 0,
+            "company_name": "Spotnana",
+            "profile": "Software Engineer",
             "type": "Recruited"
         },
         {
@@ -7297,6 +7473,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17369,
+            "name": "Anunay Minj",
+            "email": "anunayminj22@iitk.ac.in",
+            "roll_no": "220183",
+            "program_department_id": 4,
+            "secondary_program_department_id": 0,
+            "company_name": "Bayer",
+            "profile": "Graduate Engineering Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 17371,
             "name": "Apoorv Tandon",
             "email": "apoorvt22@iitk.ac.in",
@@ -7481,6 +7668,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Razorpay",
             "profile": "Software Development Engineer",
+            "type": "Recruited"
+        },
+        {
+            "id": 17397,
+            "name": "Ashutosh Kumar",
+            "email": "ashutoshk22@iitk.ac.in",
+            "roll_no": "220241",
+            "program_department_id": 1,
+            "secondary_program_department_id": 0,
+            "company_name": "Spotnana",
+            "profile": "Software Engineer",
             "type": "Recruited"
         },
         {
@@ -7855,6 +8053,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Nielsen ",
             "profile": "Software engineer",
+            "type": "Recruited"
+        },
+        {
+            "id": 17456,
+            "name": "Deepavath Raghuram Nayak",
+            "email": "raghurn22@iitk.ac.in",
+            "roll_no": "220333",
+            "program_department_id": 8,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
             "type": "Recruited"
         },
         {
@@ -8991,6 +9200,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17610,
+            "name": "Lakshansh Chouhan",
+            "email": "lakshanshv22@iitk.ac.in",
+            "roll_no": "220578",
+            "program_department_id": 4,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
             "id": 17611,
             "name": "Kushagra Srivastava",
             "email": "skushagra22@iitk.ac.in",
@@ -9233,6 +9453,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17709,
+            "name": "Sagar Kumar",
+            "email": "sagark24@iitk.ac.in",
+            "roll_no": "241110060",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "BHARAT ELECTRONICS LIMITED",
+            "profile": "Member (Research Staff) - MRS",
+            "type": "Recruited"
+        },
+        {
             "id": 17710,
             "name": "Krishna Kumar Bais",
             "email": "krishnakb24@iitk.ac.in",
@@ -9362,6 +9593,39 @@
             "secondary_program_department_id": 0,
             "company_name": "Accenture Solutions Pvt Ltd - Data AI",
             "profile": "Ind and Func AI Decision Science Analyst",
+            "type": "Recruited"
+        },
+        {
+            "id": 17760,
+            "name": "Bandaru Udayasree",
+            "email": "udayasree21@iitk.ac.in",
+            "roll_no": "210256",
+            "program_department_id": 8,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
+            "id": 17762,
+            "name": "Khushi Kanchan",
+            "email": "khushik21@iitk.ac.in",
+            "roll_no": "210516",
+            "program_department_id": 2,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
+            "id": 17764,
+            "name": "Tadiboina Naga Gowtham",
+            "email": "tngowtham21@iitk.ac.in",
+            "roll_no": "211094",
+            "program_department_id": 6,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
             "type": "Recruited"
         },
         {
@@ -9761,6 +10025,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17903,
+            "name": "Surendra Kumar Ahirwar",
+            "email": "surendrak21@iitk.ac.in",
+            "roll_no": "211083",
+            "program_department_id": 5,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
+            "type": "Recruited"
+        },
+        {
             "id": 17906,
             "name": "Prabal Pratap Singh",
             "email": "prabalps22@iitk.ac.in",
@@ -9802,6 +10077,17 @@
             "secondary_program_department_id": 8,
             "company_name": "Bajaj Auto Limited \u0026 Chetak Technology Limited",
             "profile": "Flying Start Graduate Trainee Engineer (Engineering)",
+            "type": "Recruited"
+        },
+        {
+            "id": 17916,
+            "name": "Krishna Prajapati",
+            "email": "krishnap22@iitk.ac.in",
+            "roll_no": "220548",
+            "program_department_id": 8,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
             "type": "Recruited"
         },
         {
@@ -10132,6 +10418,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Menon and Menon Limited",
             "profile": "Technical Executive",
+            "type": "Recruited"
+        },
+        {
+            "id": 18022,
+            "name": "Lokesh Nayak",
+            "email": "lokeshn21@iitk.ac.in",
+            "roll_no": "210710",
+            "program_department_id": 5,
+            "secondary_program_department_id": 0,
+            "company_name": "K12 Techno Services Pvt Ltd",
+            "profile": "Academic Manager- OCFP (ORCHIDS Career Foundation Program)",
             "type": "Recruited"
         },
         {
@@ -12036,17 +12333,6 @@
             "company_name": "Mitsubishi Heavy Industries India Private Limited",
             "profile": "PIO-PPO",
             "type": "PIO-PPO"
-        },
-        {
-            "id": 16539,
-            "name": "Sevak",
-            "email": "bssevak24@iitk.ac.in",
-            "roll_no": "241110065",
-            "program_department_id": 18,
-            "secondary_program_department_id": 0,
-            "company_name": "Amway India",
-            "profile": "Technology (Software Development)",
-            "type": "Recruited"
         }
     ]
 }
