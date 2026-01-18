@@ -1,23 +1,29 @@
 // Global data cache for performance optimization
-import type { CompanyProforma, StatsData } from "@/types/placement";
+import type { CompanyProforma, StatsData, AnalyticsData } from "@/types/placement";
 import { getAssetPath } from "./config";
 
 interface DataCache {
   stats: StatsData | null;
   proforma: CompanyProforma[] | null;
+  analytics: AnalyticsData | null;
   statsLoaded: boolean;
   proformaLoaded: boolean;
+  analyticsLoaded: boolean;
   proformaPromise: Promise<CompanyProforma[]> | null;
   statsPromise: Promise<StatsData> | null;
+  analyticsPromise: Promise<AnalyticsData> | null;
 }
 
 const cache: DataCache = {
   stats: null,
   proforma: null,
+  analytics: null,
   statsLoaded: false,
   proformaLoaded: false,
+  analyticsLoaded: false,
   proformaPromise: null,
   statsPromise: null,
+  analyticsPromise: null,
 };
 
 export async function getStatsData(): Promise<StatsData> {
@@ -72,4 +78,31 @@ export function preloadData() {
 // Preload proforma data when user is likely to need it
 export function preloadProformaData() {
   getProformaData().catch(console.error);
+}
+
+export async function getAnalyticsData(): Promise<AnalyticsData> {
+  if (cache.analyticsLoaded && cache.analytics) {
+    return cache.analytics;
+  }
+  
+  // Prevent duplicate fetches
+  if (cache.analyticsPromise) {
+    return cache.analyticsPromise;
+  }
+  
+  cache.analyticsPromise = (async () => {
+    const response = await fetch(getAssetPath("data/analytics.json"));
+    if (!response.ok) throw new Error("Failed to load analytics data");
+    cache.analytics = await response.json();
+    cache.analyticsLoaded = true;
+    cache.analyticsPromise = null;
+    return cache.analytics!;
+  })();
+  
+  return cache.analyticsPromise;
+}
+
+// Preload analytics data when user is likely to need it
+export function preloadAnalyticsData() {
+  getAnalyticsData().catch(console.error);
 }
