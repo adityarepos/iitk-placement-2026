@@ -47,6 +47,12 @@ export interface CompanyProforma {
   timeline_events?: TimelineNotice[];
 }
 
+export interface RecruiterStats {
+  total: number;
+  placement: number;
+  ppo: number;
+}
+
 export interface AnalyticsData {
   placement_overview: {
     registered_students: number;
@@ -61,7 +67,7 @@ export interface AnalyticsData {
     highest_ctc: number;
     ctc_distribution: Record<string, number>;
   };
-  top_recruiters: Record<string, number>;
+  top_recruiters: Record<string, RecruiterStats>;
   top_roles: Record<string, number>;
   department_performance: Array<{
     program_department_id: number;
@@ -69,6 +75,9 @@ export interface AnalyticsData {
     recruited: number;
     pre_offer: number;
     placement_rate: number;
+    average_ctc: number;
+    median_ctc: number;
+    highest_ctc: number;
   }>;
 }
 

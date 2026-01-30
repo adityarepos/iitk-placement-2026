@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X, ExternalLink, TrendingUp } from "lucide-react";
+import { BarChart3, Building2, Search, ChevronLeft, ChevronRight, X, TrendingUp } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getStatsData, getProformaData, getAnalyticsData, preloadData, preloadProformaData, preloadAnalyticsData } from "@/lib/dataCache";
 import { getBranchName } from "@/lib/branchMapping";
@@ -300,24 +300,18 @@ const Index = () => {
                 </TabsTrigger>
               </TabsList>
               
-              <a
-                href="https://spo-iitk-2025.github.io/iitk-2025-placement/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border bg-background hover:bg-accent hover:text-accent-foreground transition-colors text-sm"
+              <button
+                onClick={() => navigate("/2025")}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors text-sm font-medium"
               >
-                <ExternalLink className="h-4 w-4" />
                 Placement 2025
-              </a>
-              <a
-                href="https://spo-iitk-2025.github.io/iitk-2025-placement/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="sm:hidden inline-flex items-center gap-1.5 px-2 py-1.5 rounded-md border border-border bg-background hover:bg-accent hover:text-accent-foreground transition-colors text-xs"
+              </button>
+              <button
+                onClick={() => navigate("/2025")}
+                className="sm:hidden inline-flex items-center gap-1.5 px-2 py-1.5 rounded-md border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors text-xs font-medium"
               >
-                <ExternalLink className="h-3 w-3" />
                 '25
-              </a>
+              </button>
             </div>
 
               <div className="flex items-center gap-2 sm:gap-3">
@@ -352,7 +346,7 @@ const Index = () => {
                 <div key={`${student.roll_no}-${idx}`} className="rounded-lg border border-border bg-card p-4 space-y-2">
                   <div className="flex justify-between items-start gap-2">
                     <div className="font-medium text-card-foreground">
-                      <StudentHoverCard rollNo={student.roll_no} name={student.name}>
+                      <StudentHoverCard rollNo={student.roll_no} name={student.name} email={student.email}>
                         {student.name}
                       </StudentHoverCard>
                     </div>
@@ -393,7 +387,7 @@ const Index = () => {
                     {paginatedStats.map((student, idx) => (
                       <tr key={`${student.roll_no}-${idx}`} className="border-b border-border hover:bg-accent/30">
                         <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">
-                          <StudentHoverCard rollNo={student.roll_no} name={student.name}>
+                          <StudentHoverCard rollNo={student.roll_no} name={student.name} email={student.email}>
                             {student.name}
                           </StudentHoverCard>
                         </td>
@@ -598,10 +592,10 @@ const Index = () => {
                   {/* Top Recruiters */}
                   <div className="rounded-lg border border-border bg-card p-4 sm:p-6">
                     <h3 className="text-lg font-semibold mb-4 text-card-foreground">Top Recruiters</h3>
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {Object.entries(analyticsData.top_recruiters)
-                        .slice(0, 10)
-                        .map(([company, count], idx) => (
+                        .slice(0, 15)
+                        .map(([company, stats], idx) => (
                           <div key={company} className="flex items-center gap-2">
                             <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shrink-0">
                               {idx + 1}
@@ -609,7 +603,19 @@ const Index = () => {
                             <div className="flex-1 min-w-0">
                               <div className="text-sm text-card-foreground truncate">{company}</div>
                             </div>
-                            <div className="text-sm font-semibold text-primary shrink-0">{count}</div>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className="text-xs px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300" title="Placement">
+                                P: {stats.placement}
+                              </span>
+                              {stats.ppo > 0 && (
+                                <span className="text-xs px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300" title="PPO">
+                                  PPO: {stats.ppo}
+                                </span>
+                              )}
+                              <span className="text-sm font-semibold text-primary min-w-[24px] text-right">
+                                {stats.total}
+                              </span>
+                            </div>
                           </div>
                         ))}
                     </div>
@@ -651,6 +657,9 @@ const Index = () => {
                           <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Recruited</th>
                           <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">PPO</th>
                           <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Placement %</th>
+                          <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Avg CTC</th>
+                          <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Median CTC</th>
+                          <th className="text-left text-primary-foreground font-semibold px-3 py-2 text-xs sm:text-sm">Highest CTC</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -694,6 +703,15 @@ const Index = () => {
                                 }`}>
                                   {dept.placement_rate.toFixed(1)}%
                                 </span>
+                              </td>
+                              <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">
+                                {dept.average_ctc > 0 ? `₹${dept.average_ctc.toFixed(2)}` : '-'}
+                              </td>
+                              <td className="px-3 py-2 text-xs sm:text-sm text-card-foreground">
+                                {dept.median_ctc > 0 ? `₹${dept.median_ctc.toFixed(2)}` : '-'}
+                              </td>
+                              <td className="px-3 py-2 text-xs sm:text-sm font-medium text-green-600 dark:text-green-400">
+                                {dept.highest_ctc > 0 ? `₹${dept.highest_ctc.toFixed(2)}` : '-'}
                               </td>
                             </tr>
                           ))}

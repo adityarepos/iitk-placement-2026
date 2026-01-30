@@ -1,598 +1,899 @@
 {
-  "placement_overview": {
-    "registered_students": 1969,
-    "students_placed": 824,
-    "ppo_received": 254,
-    "placement_percentage": 54.75,
-    "total_offers_generated": 1078
-  },
-  "salary_insights_lpa": {
-    "average_ctc": 24.54,
-    "median_ctc": 18.0,
-    "highest_ctc": 266.0,
-    "ctc_distribution": {
-      "10-20 LPA": 198,
-      "20-30 LPA": 96,
-      "30-50 LPA": 76,
-      "< 10 LPA": 57,
-      "50+ LPA": 41
-    }
-  },
-  "top_recruiters": {
-    "Deutsche India Private Limited": 30,
-    "ICICI Bank": 24,
-    "Accenture Solutions Pvt Ltd - Data AI": 20,
-    "BlackRock": 18,
-    "Genpact": 18,
-    "Texas Instruments": 17,
-    "EXL": 17,
-    "Navi": 17,
-    "Squarepoint Capital": 17,
-    "PricewaterhouseCoopers (US-Adv)": 16
-  },
-  "top_roles": {
-    "IT / Software": 131,
-    "Core Engineering & Technology": 93,
-    "Finance & Consulting": 75,
-    "Manufacturing": 17,
-    "E-Commerce": 12,
-    "Core Engineering & Technology, Manufacturing": 11,
-    "Academics/Research": 11,
-    "Edutech": 10
-  },
-  "department_performance": [
-    {
-      "program_department_id": 87,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 4,
-      "total": 107,
-      "recruited": 61,
-      "pre_offer": 13,
-      "placement_rate": 69.2
-    },
-    {
-      "program_department_id": 83,
-      "total": 44,
-      "recruited": 16,
-      "pre_offer": 6,
-      "placement_rate": 50.0
-    },
-    {
-      "program_department_id": 10,
-      "total": 48,
-      "recruited": 17,
-      "pre_offer": 6,
-      "placement_rate": 47.9
-    },
-    {
-      "program_department_id": 90,
-      "total": 8,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 37.5
-    },
-    {
-      "program_department_id": 35,
-      "total": 1,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 45,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 6,
-      "total": 198,
-      "recruited": 90,
-      "pre_offer": 63,
-      "placement_rate": 77.3
-    },
-    {
-      "program_department_id": 107,
-      "total": 20,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 10.0
-    },
-    {
-      "program_department_id": 86,
-      "total": 5,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 20.0
-    },
-    {
-      "program_department_id": 84,
-      "total": 24,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 4.2
-    },
-    {
-      "program_department_id": 39,
-      "total": 4,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 50.0
-    },
-    {
-      "program_department_id": 93,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 89,
-      "total": 5,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 40.0
-    },
-    {
-      "program_department_id": 36,
-      "total": 3,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 115,
-      "total": 3,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 66.7
-    },
-    {
-      "program_department_id": 97,
-      "total": 4,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 75.0
-    },
-    {
-      "program_department_id": 14,
-      "total": 72,
-      "recruited": 22,
-      "pre_offer": 0,
-      "placement_rate": 30.6
-    },
-    {
-      "program_department_id": 108,
-      "total": 13,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 23.1
-    },
-    {
-      "program_department_id": 22,
-      "total": 12,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 8.3
-    },
-    {
-      "program_department_id": 13,
-      "total": 41,
-      "recruited": 9,
-      "pre_offer": 1,
-      "placement_rate": 24.4
-    },
-    {
-      "program_department_id": 2,
-      "total": 59,
-      "recruited": 21,
-      "pre_offer": 8,
-      "placement_rate": 49.2
-    },
-    {
-      "program_department_id": 124,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 16,
-      "total": 93,
-      "recruited": 18,
-      "pre_offer": 0,
-      "placement_rate": 19.4
-    },
-    {
-      "program_department_id": 128,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 98,
-      "total": 1,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 126,
-      "total": 2,
-      "recruited": 0,
-      "pre_offer": 2,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 44,
-      "total": 5,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 60.0
-    },
-    {
-      "program_department_id": 11,
-      "total": 22,
-      "recruited": 7,
-      "pre_offer": 0,
-      "placement_rate": 31.8
-    },
-    {
-      "program_department_id": 42,
-      "total": 4,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 75.0
-    },
-    {
-      "program_department_id": 99,
-      "total": 15,
-      "recruited": 13,
-      "pre_offer": 0,
-      "placement_rate": 86.7
-    },
-    {
-      "program_department_id": 117,
-      "total": 2,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 88,
-      "total": 8,
-      "recruited": 7,
-      "pre_offer": 0,
-      "placement_rate": 87.5
-    },
-    {
-      "program_department_id": 41,
-      "total": 3,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 66.7
-    },
-    {
-      "program_department_id": 46,
-      "total": 5,
-      "recruited": 4,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 40,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 125,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 119,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 43,
-      "total": 15,
-      "recruited": 11,
-      "pre_offer": 0,
-      "placement_rate": 73.3
-    },
-    {
-      "program_department_id": 32,
-      "total": 10,
-      "recruited": 4,
-      "pre_offer": 5,
-      "placement_rate": 90.0
-    },
-    {
-      "program_department_id": 7,
-      "total": 82,
-      "recruited": 39,
-      "pre_offer": 5,
-      "placement_rate": 53.7
-    },
-    {
-      "program_department_id": 9,
-      "total": 24,
-      "recruited": 6,
-      "pre_offer": 1,
-      "placement_rate": 29.2
-    },
-    {
-      "program_department_id": 100,
-      "total": 1,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 120,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 38,
-      "total": 6,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 33.3
-    },
-    {
-      "program_department_id": 15,
-      "total": 6,
-      "recruited": 4,
-      "pre_offer": 0,
-      "placement_rate": 66.7
-    },
-    {
-      "program_department_id": 48,
-      "total": 7,
-      "recruited": 4,
-      "pre_offer": 0,
-      "placement_rate": 57.1
-    },
-    {
-      "program_department_id": 12,
-      "total": 60,
-      "recruited": 29,
-      "pre_offer": 12,
-      "placement_rate": 68.3
-    },
-    {
-      "program_department_id": 26,
-      "total": 5,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 60.0
-    },
-    {
-      "program_department_id": 85,
-      "total": 7,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 42.9
-    },
-    {
-      "program_department_id": 95,
-      "total": 29,
-      "recruited": 10,
-      "pre_offer": 12,
-      "placement_rate": 75.9
-    },
-    {
-      "program_department_id": 24,
-      "total": 9,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 61,
-      "total": 28,
-      "recruited": 2,
-      "pre_offer": 4,
-      "placement_rate": 21.4
-    },
-    {
-      "program_department_id": 19,
-      "total": 57,
-      "recruited": 24,
-      "pre_offer": 10,
-      "placement_rate": 59.6
-    },
-    {
-      "program_department_id": 122,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 1,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 94,
-      "total": 2,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 21,
-      "total": 55,
-      "recruited": 19,
-      "pre_offer": 0,
-      "placement_rate": 34.5
-    },
-    {
-      "program_department_id": 49,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 47,
-      "total": 3,
-      "recruited": 3,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 3,
-      "total": 135,
-      "recruited": 71,
-      "pre_offer": 5,
-      "placement_rate": 56.3
-    },
-    {
-      "program_department_id": 17,
-      "total": 37,
-      "recruited": 11,
-      "pre_offer": 0,
-      "placement_rate": 29.7
-    },
-    {
-      "program_department_id": 28,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 20,
-      "total": 32,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 3.1
-    },
-    {
-      "program_department_id": 37,
-      "total": 4,
-      "recruited": 2,
-      "pre_offer": 2,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 33,
-      "total": 11,
-      "recruited": 2,
-      "pre_offer": 7,
-      "placement_rate": 81.8
-    },
-    {
-      "program_department_id": 1,
-      "total": 56,
-      "recruited": 29,
-      "pre_offer": 6,
-      "placement_rate": 62.5
-    },
-    {
-      "program_department_id": 104,
-      "total": 3,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 66.7
-    },
-    {
-      "program_department_id": 106,
-      "total": 9,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 5,
-      "total": 136,
-      "recruited": 73,
-      "pre_offer": 49,
-      "placement_rate": 89.7
-    },
-    {
-      "program_department_id": 18,
-      "total": 72,
-      "recruited": 53,
-      "pre_offer": 3,
-      "placement_rate": 77.8
-    },
-    {
-      "program_department_id": 110,
-      "total": 12,
-      "recruited": 2,
-      "pre_offer": 0,
-      "placement_rate": 16.7
-    },
-    {
-      "program_department_id": 55,
-      "total": 1,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 27,
-      "total": 16,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 23,
-      "total": 28,
-      "recruited": 16,
-      "pre_offer": 3,
-      "placement_rate": 67.9
-    },
-    {
-      "program_department_id": 56,
-      "total": 1,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 100.0
-    },
-    {
-      "program_department_id": 58,
-      "total": 2,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    },
-    {
-      "program_department_id": 91,
-      "total": 4,
-      "recruited": 1,
-      "pre_offer": 0,
-      "placement_rate": 25.0
-    },
-    {
-      "program_department_id": 8,
-      "total": 157,
-      "recruited": 76,
-      "pre_offer": 24,
-      "placement_rate": 63.7
-    },
-    {
-      "program_department_id": 200,
-      "total": 4,
-      "recruited": 0,
-      "pre_offer": 0,
-      "placement_rate": 0.0
-    }
-  ]
+    "placement_overview": {
+        "registered_students": 1969,
+        "students_placed": 1078,
+        "ppo_received": 254,
+        "placement_percentage": 54.75,
+        "total_offers_generated": 1078
+    },
+    "salary_insights_lpa": {
+        "average_ctc": 24.87,
+        "median_ctc": 20.0,
+        "highest_ctc": 120.0,
+        "ctc_distribution": {
+            "10-20 LPA": 355,
+            "20-30 LPA": 219,
+            "30-50 LPA": 180,
+            "< 10 LPA": 76,
+            "50+ LPA": 64
+        }
+    },
+    "top_recruiters": {
+        "ICICI Bank": {
+            "total": 24,
+            "placement": 23,
+            "ppo": 1
+        },
+        "Accenture Solutions Pvt Ltd - Data AI": {
+            "total": 20,
+            "placement": 20,
+            "ppo": 0
+        },
+        "BlackRock": {
+            "total": 18,
+            "placement": 18,
+            "ppo": 0
+        },
+        "Genpact": {
+            "total": 18,
+            "placement": 18,
+            "ppo": 0
+        },
+        "Squarepoint Capital": {
+            "total": 17,
+            "placement": 17,
+            "ppo": 0
+        },
+        "Navi": {
+            "total": 17,
+            "placement": 17,
+            "ppo": 0
+        },
+        "EXL": {
+            "total": 17,
+            "placement": 17,
+            "ppo": 0
+        },
+        "PricewaterhouseCoopers (US-Adv)": {
+            "total": 16,
+            "placement": 16,
+            "ppo": 0
+        },
+        "Deutsche India Private Limited": {
+            "total": 30,
+            "placement": 15,
+            "ppo": 15
+        },
+        "Larsen & Toubro Limited": {
+            "total": 13,
+            "placement": 13,
+            "ppo": 0
+        },
+        "K12 Techno Services Pvt Ltd": {
+            "total": 13,
+            "placement": 13,
+            "ppo": 0
+        },
+        "Meesho": {
+            "total": 13,
+            "placement": 13,
+            "ppo": 0
+        },
+        " FN Mathlogic Consulting Services Private Limited": {
+            "total": 11,
+            "placement": 11,
+            "ppo": 0
+        },
+        "Accenture": {
+            "total": 10,
+            "placement": 10,
+            "ppo": 0
+        },
+        "Futures First Info Services Pvt Ltd": {
+            "total": 13,
+            "placement": 10,
+            "ppo": 3
+        }
+    },
+    "top_roles": {
+        "IT / Software": 494,
+        "Finance & Consulting": 224,
+        "Other": 220,
+        "Core Engineering & Technology": 88,
+        "Academics/Research": 34,
+        "Manufacturing": 10,
+        "E-Commerce": 8
+    },
+    "department_performance": [
+        {
+            "program_department_id": 87,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 4,
+            "total": 107,
+            "recruited": 74,
+            "pre_offer": 13,
+            "placement_rate": 69.16,
+            "average_ctc": 22.89,
+            "median_ctc": 20.85,
+            "highest_ctc": 57.0
+        },
+        {
+            "program_department_id": 83,
+            "total": 44,
+            "recruited": 22,
+            "pre_offer": 6,
+            "placement_rate": 50.0,
+            "average_ctc": 20.33,
+            "median_ctc": 18.0,
+            "highest_ctc": 35.0
+        },
+        {
+            "program_department_id": 10,
+            "total": 48,
+            "recruited": 23,
+            "pre_offer": 6,
+            "placement_rate": 47.92,
+            "average_ctc": 22.81,
+            "median_ctc": 20.85,
+            "highest_ctc": 38.5
+        },
+        {
+            "program_department_id": 90,
+            "total": 8,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 37.5,
+            "average_ctc": 12.33,
+            "median_ctc": 10.0,
+            "highest_ctc": 17.0
+        },
+        {
+            "program_department_id": 35,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 12.5,
+            "median_ctc": 12.5,
+            "highest_ctc": 12.5
+        },
+        {
+            "program_department_id": 45,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 6,
+            "total": 198,
+            "recruited": 153,
+            "pre_offer": 63,
+            "placement_rate": 77.27,
+            "average_ctc": 30.07,
+            "median_ctc": 23.1,
+            "highest_ctc": 106.0
+        },
+        {
+            "program_department_id": 107,
+            "total": 20,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 10.0,
+            "average_ctc": 7.0,
+            "median_ctc": 7.0,
+            "highest_ctc": 8.0
+        },
+        {
+            "program_department_id": 86,
+            "total": 5,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 20.0,
+            "average_ctc": 9.2,
+            "median_ctc": 9.2,
+            "highest_ctc": 9.2
+        },
+        {
+            "program_department_id": 84,
+            "total": 24,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 4.17,
+            "average_ctc": 8.0,
+            "median_ctc": 8.0,
+            "highest_ctc": 8.0
+        },
+        {
+            "program_department_id": 39,
+            "total": 4,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 50.0,
+            "average_ctc": 10.5,
+            "median_ctc": 10.5,
+            "highest_ctc": 20.0
+        },
+        {
+            "program_department_id": 93,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 89,
+            "total": 5,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 40.0,
+            "average_ctc": 34.2,
+            "median_ctc": 34.2,
+            "highest_ctc": 51.0
+        },
+        {
+            "program_department_id": 36,
+            "total": 3,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 28.95,
+            "median_ctc": 28.95,
+            "highest_ctc": 36.5
+        },
+        {
+            "program_department_id": 115,
+            "total": 3,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 66.67,
+            "average_ctc": 1.0,
+            "median_ctc": 1.0,
+            "highest_ctc": 1.0
+        },
+        {
+            "program_department_id": 97,
+            "total": 4,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 75.0,
+            "average_ctc": 30.75,
+            "median_ctc": 26.31,
+            "highest_ctc": 45.51
+        },
+        {
+            "program_department_id": 14,
+            "total": 72,
+            "recruited": 22,
+            "pre_offer": 0,
+            "placement_rate": 30.56,
+            "average_ctc": 15.38,
+            "median_ctc": 15.0,
+            "highest_ctc": 23.0
+        },
+        {
+            "program_department_id": 108,
+            "total": 13,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 23.08,
+            "average_ctc": 14.85,
+            "median_ctc": 12.0,
+            "highest_ctc": 23.36
+        },
+        {
+            "program_department_id": 22,
+            "total": 12,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 8.33,
+            "average_ctc": 10.0,
+            "median_ctc": 10.0,
+            "highest_ctc": 10.0
+        },
+        {
+            "program_department_id": 13,
+            "total": 41,
+            "recruited": 10,
+            "pre_offer": 1,
+            "placement_rate": 24.39,
+            "average_ctc": 21.63,
+            "median_ctc": 20.55,
+            "highest_ctc": 38.2
+        },
+        {
+            "program_department_id": 2,
+            "total": 59,
+            "recruited": 29,
+            "pre_offer": 8,
+            "placement_rate": 49.15,
+            "average_ctc": 21.74,
+            "median_ctc": 20.68,
+            "highest_ctc": 47.0
+        },
+        {
+            "program_department_id": 124,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 16,
+            "total": 93,
+            "recruited": 18,
+            "pre_offer": 0,
+            "placement_rate": 19.35,
+            "average_ctc": 12.31,
+            "median_ctc": 13.0,
+            "highest_ctc": 18.0
+        },
+        {
+            "program_department_id": 128,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 98,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 25.0,
+            "median_ctc": 25.0,
+            "highest_ctc": 25.0
+        },
+        {
+            "program_department_id": 126,
+            "total": 2,
+            "recruited": 2,
+            "pre_offer": 2,
+            "placement_rate": 100.0,
+            "average_ctc": 32.0,
+            "median_ctc": 32.0,
+            "highest_ctc": 32.0
+        },
+        {
+            "program_department_id": 44,
+            "total": 5,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 60.0,
+            "average_ctc": 18.78,
+            "median_ctc": 18.3,
+            "highest_ctc": 21.0
+        },
+        {
+            "program_department_id": 11,
+            "total": 22,
+            "recruited": 7,
+            "pre_offer": 0,
+            "placement_rate": 31.82,
+            "average_ctc": 13.72,
+            "median_ctc": 14.0,
+            "highest_ctc": 17.04
+        },
+        {
+            "program_department_id": 42,
+            "total": 4,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 75.0,
+            "average_ctc": 42.38,
+            "median_ctc": 60.0,
+            "highest_ctc": 66.14
+        },
+        {
+            "program_department_id": 99,
+            "total": 15,
+            "recruited": 13,
+            "pre_offer": 0,
+            "placement_rate": 86.67,
+            "average_ctc": 15.28,
+            "median_ctc": 17.4,
+            "highest_ctc": 31.65
+        },
+        {
+            "program_department_id": 117,
+            "total": 2,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 19.38,
+            "median_ctc": 19.38,
+            "highest_ctc": 23.36
+        },
+        {
+            "program_department_id": 88,
+            "total": 8,
+            "recruited": 7,
+            "pre_offer": 0,
+            "placement_rate": 87.5,
+            "average_ctc": 18.77,
+            "median_ctc": 15.4,
+            "highest_ctc": 24.5
+        },
+        {
+            "program_department_id": 41,
+            "total": 3,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 66.67,
+            "average_ctc": 27.51,
+            "median_ctc": 27.51,
+            "highest_ctc": 31.65
+        },
+        {
+            "program_department_id": 46,
+            "total": 5,
+            "recruited": 5,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 26.02,
+            "median_ctc": 26.31,
+            "highest_ctc": 38.2
+        },
+        {
+            "program_department_id": 40,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 125,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 14.1,
+            "median_ctc": 14.1,
+            "highest_ctc": 14.1
+        },
+        {
+            "program_department_id": 119,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 20.11,
+            "median_ctc": 20.11,
+            "highest_ctc": 20.11
+        },
+        {
+            "program_department_id": 43,
+            "total": 15,
+            "recruited": 11,
+            "pre_offer": 0,
+            "placement_rate": 73.33,
+            "average_ctc": 20.3,
+            "median_ctc": 19.37,
+            "highest_ctc": 47.0
+        },
+        {
+            "program_department_id": 32,
+            "total": 10,
+            "recruited": 9,
+            "pre_offer": 5,
+            "placement_rate": 90.0,
+            "average_ctc": 68.47,
+            "median_ctc": 66.14,
+            "highest_ctc": 90.0
+        },
+        {
+            "program_department_id": 7,
+            "total": 82,
+            "recruited": 44,
+            "pre_offer": 5,
+            "placement_rate": 53.66,
+            "average_ctc": 21.69,
+            "median_ctc": 20.43,
+            "highest_ctc": 45.2
+        },
+        {
+            "program_department_id": 9,
+            "total": 24,
+            "recruited": 7,
+            "pre_offer": 1,
+            "placement_rate": 29.17,
+            "average_ctc": 14.1,
+            "median_ctc": 12.6,
+            "highest_ctc": 26.31
+        },
+        {
+            "program_department_id": 100,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 40.0,
+            "median_ctc": 40.0,
+            "highest_ctc": 40.0
+        },
+        {
+            "program_department_id": 120,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 38,
+            "total": 6,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 33.33,
+            "average_ctc": 21.54,
+            "median_ctc": 21.54,
+            "highest_ctc": 30.09
+        },
+        {
+            "program_department_id": 15,
+            "total": 6,
+            "recruited": 4,
+            "pre_offer": 0,
+            "placement_rate": 66.67,
+            "average_ctc": 12.6,
+            "median_ctc": 13.36,
+            "highest_ctc": 13.71
+        },
+        {
+            "program_department_id": 48,
+            "total": 7,
+            "recruited": 4,
+            "pre_offer": 0,
+            "placement_rate": 57.14,
+            "average_ctc": 24.55,
+            "median_ctc": 23.0,
+            "highest_ctc": 38.2
+        },
+        {
+            "program_department_id": 12,
+            "total": 60,
+            "recruited": 41,
+            "pre_offer": 12,
+            "placement_rate": 68.33,
+            "average_ctc": 29.47,
+            "median_ctc": 24.5,
+            "highest_ctc": 83.28
+        },
+        {
+            "program_department_id": 26,
+            "total": 5,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 60.0,
+            "average_ctc": 17.84,
+            "median_ctc": 13.53,
+            "highest_ctc": 28.0
+        },
+        {
+            "program_department_id": 85,
+            "total": 7,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 42.86,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 95,
+            "total": 29,
+            "recruited": 22,
+            "pre_offer": 12,
+            "placement_rate": 75.86,
+            "average_ctc": 25.54,
+            "median_ctc": 23.0,
+            "highest_ctc": 66.14
+        },
+        {
+            "program_department_id": 24,
+            "total": 9,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 61,
+            "total": 28,
+            "recruited": 6,
+            "pre_offer": 4,
+            "placement_rate": 21.43,
+            "average_ctc": 30.9,
+            "median_ctc": 30.09,
+            "highest_ctc": 45.43
+        },
+        {
+            "program_department_id": 19,
+            "total": 57,
+            "recruited": 34,
+            "pre_offer": 10,
+            "placement_rate": 59.65,
+            "average_ctc": 29.73,
+            "median_ctc": 39.7,
+            "highest_ctc": 51.0
+        },
+        {
+            "program_department_id": 122,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 1,
+            "placement_rate": 100.0,
+            "average_ctc": 10.6,
+            "median_ctc": 10.6,
+            "highest_ctc": 10.6
+        },
+        {
+            "program_department_id": 94,
+            "total": 2,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 21,
+            "total": 55,
+            "recruited": 19,
+            "pre_offer": 0,
+            "placement_rate": 34.55,
+            "average_ctc": 14.45,
+            "median_ctc": 15.0,
+            "highest_ctc": 23.0
+        },
+        {
+            "program_department_id": 49,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 47,
+            "total": 3,
+            "recruited": 3,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 30.0,
+            "median_ctc": 35.0,
+            "highest_ctc": 54.0
+        },
+        {
+            "program_department_id": 3,
+            "total": 135,
+            "recruited": 76,
+            "pre_offer": 5,
+            "placement_rate": 56.3,
+            "average_ctc": 18.78,
+            "median_ctc": 17.73,
+            "highest_ctc": 60.0
+        },
+        {
+            "program_department_id": 17,
+            "total": 37,
+            "recruited": 11,
+            "pre_offer": 0,
+            "placement_rate": 29.73,
+            "average_ctc": 12.76,
+            "median_ctc": 15.0,
+            "highest_ctc": 15.0
+        },
+        {
+            "program_department_id": 28,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 20,
+            "total": 32,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 3.12,
+            "average_ctc": 33.0,
+            "median_ctc": 33.0,
+            "highest_ctc": 33.0
+        },
+        {
+            "program_department_id": 37,
+            "total": 4,
+            "recruited": 4,
+            "pre_offer": 2,
+            "placement_rate": 100.0,
+            "average_ctc": 30.25,
+            "median_ctc": 25.0,
+            "highest_ctc": 54.0
+        },
+        {
+            "program_department_id": 33,
+            "total": 11,
+            "recruited": 9,
+            "pre_offer": 7,
+            "placement_rate": 81.82,
+            "average_ctc": 18.43,
+            "median_ctc": 19.5,
+            "highest_ctc": 35.0
+        },
+        {
+            "program_department_id": 1,
+            "total": 56,
+            "recruited": 35,
+            "pre_offer": 6,
+            "placement_rate": 62.5,
+            "average_ctc": 18.19,
+            "median_ctc": 17.73,
+            "highest_ctc": 34.0
+        },
+        {
+            "program_department_id": 104,
+            "total": 3,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 66.67,
+            "average_ctc": 25.78,
+            "median_ctc": 25.78,
+            "highest_ctc": 33.0
+        },
+        {
+            "program_department_id": 106,
+            "total": 9,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 5,
+            "total": 136,
+            "recruited": 122,
+            "pre_offer": 49,
+            "placement_rate": 89.71,
+            "average_ctc": 41.84,
+            "median_ctc": 30.86,
+            "highest_ctc": 120.0
+        },
+        {
+            "program_department_id": 18,
+            "total": 72,
+            "recruited": 56,
+            "pre_offer": 3,
+            "placement_rate": 77.78,
+            "average_ctc": 28.1,
+            "median_ctc": 25.0,
+            "highest_ctc": 83.28
+        },
+        {
+            "program_department_id": 110,
+            "total": 12,
+            "recruited": 2,
+            "pre_offer": 0,
+            "placement_rate": 16.67,
+            "average_ctc": 8.0,
+            "median_ctc": 8.0,
+            "highest_ctc": 8.0
+        },
+        {
+            "program_department_id": 55,
+            "total": 1,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 27,
+            "total": 16,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 23,
+            "total": 28,
+            "recruited": 19,
+            "pre_offer": 3,
+            "placement_rate": 67.86,
+            "average_ctc": 15.59,
+            "median_ctc": 15.34,
+            "highest_ctc": 23.36
+        },
+        {
+            "program_department_id": 56,
+            "total": 1,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 100.0,
+            "average_ctc": 15.4,
+            "median_ctc": 15.4,
+            "highest_ctc": 15.4
+        },
+        {
+            "program_department_id": 58,
+            "total": 2,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        },
+        {
+            "program_department_id": 91,
+            "total": 4,
+            "recruited": 1,
+            "pre_offer": 0,
+            "placement_rate": 25.0,
+            "average_ctc": 23.36,
+            "median_ctc": 23.36,
+            "highest_ctc": 23.36
+        },
+        {
+            "program_department_id": 8,
+            "total": 157,
+            "recruited": 100,
+            "pre_offer": 24,
+            "placement_rate": 63.69,
+            "average_ctc": 21.33,
+            "median_ctc": 18.5,
+            "highest_ctc": 66.14
+        },
+        {
+            "program_department_id": 200,
+            "total": 4,
+            "recruited": 0,
+            "pre_offer": 0,
+            "placement_rate": 0.0,
+            "average_ctc": 0,
+            "median_ctc": 0,
+            "highest_ctc": 0
+        }
+    ]
 }

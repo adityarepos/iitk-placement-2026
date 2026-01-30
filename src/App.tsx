@@ -8,6 +8,8 @@ import { BASE_PATH } from "./lib/config";
 
 // Lazy load non-critical pages
 const CompanyDetails = lazy(() => import("./pages/CompanyDetails"));
+const Index2025 = lazy(() => import("./pages/Index2025"));
+const CompanyDetails2025 = lazy(() => import("./pages/CompanyDetails2025"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -33,6 +35,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/details/:id" element={<CompanyDetails />} />
+              <Route path="/2025" element={<Index2025 />} />
+              <Route path="/2025/details/:id" element={<CompanyDetails2025 />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -27,3 +27,6 @@ npm-debug.log*
 
 # Lock files (optional - keep package-lock.json)
 bun.lockb
+
+# analytics image extract json
+public/data/image_extract.json
