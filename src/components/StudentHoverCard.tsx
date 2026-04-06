@@ -43,11 +43,8 @@ const getInitials = (name: string): string => {
 export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHoverCardProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isIdCardDialogOpen, setIsIdCardDialogOpen] = useState(false);
-  const [imageLoading, setImageLoading] = useState(true);
   const [homeImageError, setHomeImageError] = useState(false);
   const [oaImageError, setOaImageError] = useState(false);
-  const [homeImageLoaded, setHomeImageLoaded] = useState(false);
-  const [oaImageLoaded, setOaImageLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
   const userId = getUserIdFromEmail(email);
@@ -56,9 +53,7 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
   
   // Determine which image to show as primary
   const showHomeImage = homeImageUrl && !homeImageError;
-  const showOaImage = !showHomeImage && !oaImageError;
   const primaryImageUrl = showHomeImage ? homeImageUrl : oaImageUrl;
-  const hasIdCardPhoto = homeImageLoaded && oaImageLoaded && !oaImageError;
 
   // Detect if device is mobile/touch-enabled
   useEffect(() => {
@@ -70,38 +65,16 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-  
-  // Pre-check if OA image exists (for showing ID card button)
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => setOaImageLoaded(true);
-    img.onerror = () => setOaImageError(true);
-    img.src = oaImageUrl;
-  }, [oaImageUrl]);
 
   if (!ENABLE_STUDENT_IMAGE_HOVER) {
     return <>{children}</>;
   }
 
-  const handleHomeImageLoad = () => {
-    setImageLoading(false);
-    setHomeImageLoaded(true);
-  };
-
   const handleHomeImageError = () => {
     setHomeImageError(true);
-    // If home image fails and no OA image, stop loading
-    if (oaImageError) {
-      setImageLoading(false);
-    }
-  };
-  
-  const handleOaImageLoad = () => {
-    setImageLoading(false);
   };
   
   const handleOaImageError = () => {
-    setImageLoading(false);
     setOaImageError(true);
   };
 
@@ -138,38 +111,24 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
               className="relative w-32 h-40 cursor-pointer overflow-hidden rounded-md border border-border"
               onClick={() => setIsDialogOpen(true)}
             >
-              {imageLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-muted">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                </div>
-              )}
               {bothImagesFailed ? (
                 <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground text-sm">
                   {getInitials(name)}
                 </div>
               ) : (
                 <>
-                  {/* Try home.iitk.ac.in first */}
-                  {homeImageUrl && !homeImageError && (
+                  {homeImageUrl && !homeImageError ? (
                     <img
                       src={homeImageUrl}
                       alt={`${name}'s photo`}
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      onLoad={handleHomeImageLoad}
                       onError={handleHomeImageError}
                     />
-                  )}
-                  {/* Fallback to OA image */}
-                  {(!homeImageUrl || homeImageError) && !oaImageError && (
+                  ) : (
                     <img
                       src={oaImageUrl}
                       alt={`${name}'s photo`}
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      onLoad={handleOaImageLoad}
                       onError={handleOaImageError}
                     />
                   )}
@@ -178,8 +137,8 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
             </div>
             <div className="text-center">
               <p className="text-xs text-muted-foreground">{rollNo}</p>
-              {/* Show ID Card button if home image is shown and OA image is also available */}
-              {showHomeImage && hasIdCardPhoto && (
+              {/* Show ID Card button if home image is shown */}
+              {showHomeImage && (
                 <Button 
                   variant="ghost" 
                   size="sm" 
@@ -215,16 +174,14 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
                       src={homeImageUrl!}
                       alt={`${name}'s photo`}
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
+                      onError={handleHomeImageError}
                     />
                   ) : (
                     <img
                       src={oaImageUrl}
                       alt={`${name}'s photo`}
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
+                      onError={handleOaImageError}
                     />
                   )}
                 </>
@@ -234,7 +191,7 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
               <p className="font-medium text-base">{name}</p>
               <p className="text-sm text-muted-foreground">{rollNo}</p>
               {/* Show ID Card button in dialog too */}
-              {showHomeImage && hasIdCardPhoto && (
+              {showHomeImage && (
                 <Button 
                   variant="outline" 
                   size="sm" 
@@ -262,8 +219,6 @@ export const StudentHoverCard = ({ rollNo, name, email, children }: StudentHover
                 src={oaImageUrl}
                 alt={`${name}'s ID card photo`}
                 className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
               />
             </div>
             <div className="text-center">

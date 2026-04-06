@@ -10,13 +10,13 @@
             "program_department_id": 4,
             "total": 107,
             "pre_offer": 13,
-            "recruited": 69
+            "recruited": 70
         },
         {
             "program_department_id": 83,
-            "total": 44,
+            "total": 43,
             "pre_offer": 6,
-            "recruited": 17
+            "recruited": 23
         },
         {
             "program_department_id": 10,
@@ -50,9 +50,9 @@
         },
         {
             "program_department_id": 107,
-            "total": 20,
+            "total": 21,
             "pre_offer": 0,
-            "recruited": 2
+            "recruited": 3
         },
         {
             "program_department_id": 86,
@@ -106,7 +106,7 @@
             "program_department_id": 14,
             "total": 72,
             "pre_offer": 0,
-            "recruited": 22
+            "recruited": 30
         },
         {
             "program_department_id": 108,
@@ -142,7 +142,7 @@
             "program_department_id": 16,
             "total": 93,
             "pre_offer": 0,
-            "recruited": 18
+            "recruited": 19
         },
         {
             "program_department_id": 128,
@@ -244,7 +244,7 @@
             "program_department_id": 7,
             "total": 82,
             "pre_offer": 5,
-            "recruited": 43
+            "recruited": 44
         },
         {
             "program_department_id": 9,
@@ -340,7 +340,7 @@
             "program_department_id": 21,
             "total": 55,
             "pre_offer": 0,
-            "recruited": 19
+            "recruited": 24
         },
         {
             "program_department_id": 49,
@@ -364,7 +364,7 @@
             "program_department_id": 17,
             "total": 37,
             "pre_offer": 0,
-            "recruited": 11
+            "recruited": 16
         },
         {
             "program_department_id": 28,
@@ -376,7 +376,7 @@
             "program_department_id": 20,
             "total": 32,
             "pre_offer": 0,
-            "recruited": 1
+            "recruited": 2
         },
         {
             "program_department_id": 37,
@@ -418,7 +418,7 @@
             "program_department_id": 18,
             "total": 72,
             "pre_offer": 3,
-            "recruited": 53
+            "recruited": 56
         },
         {
             "program_department_id": 110,
@@ -466,7 +466,7 @@
             "program_department_id": 8,
             "total": 157,
             "pre_offer": 24,
-            "recruited": 92
+            "recruited": 93
         },
         {
             "program_department_id": 200,
@@ -1214,6 +1214,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16340,
+            "name": "Adwaith D R",
+            "email": "adwaithdr24@iitk.ac.in",
+            "roll_no": "241050005",
+            "program_department_id": 21,
+            "secondary_program_department_id": 0,
+            "company_name": "Infosys Limited",
+            "profile": "Engineering Analyst for Core (Turbo Machinery)",
+            "type": "Recruited"
+        },
+        {
             "id": 16341,
             "name": "Vasudev Khemka",
             "email": "vasudevk24@iitk.ac.in",
@@ -1222,6 +1233,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Texas Instruments",
             "profile": "Analog Engineer",
+            "type": "Recruited"
+        },
+        {
+            "id": 16342,
+            "name": "Aditya Prasad",
+            "email": "adiprasad24@iitk.ac.in",
+            "roll_no": "241050004",
+            "program_department_id": 21,
+            "secondary_program_department_id": 0,
+            "company_name": "Tata Consultancy Services",
+            "profile": "Researchers/ Research Engineer",
             "type": "Recruited"
         },
         {
@@ -1244,6 +1266,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Boeing",
             "profile": "Embedded SW",
+            "type": "Recruited"
+        },
+        {
+            "id": 16345,
+            "name": "Abhishek Rathi",
+            "email": "abhishekr24@iitk.ac.in",
+            "roll_no": "241050003",
+            "program_department_id": 21,
+            "secondary_program_department_id": 0,
+            "company_name": "Aequs",
+            "profile": "Post Graduate Engineer Trainee",
             "type": "Recruited"
         },
         {
@@ -1423,6 +1456,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16382,
+            "name": "Sidharth Swaroop Mekap",
+            "email": "swaroopm24@iitk.ac.in",
+            "roll_no": "241050083",
+            "program_department_id": 21,
+            "secondary_program_department_id": 0,
+            "company_name": "Infosys Limited",
+            "profile": "Engineering Analyst for Core (Turbo Machinery)",
+            "type": "Recruited"
+        },
+        {
             "id": 16385,
             "name": "Abhishek Prakash",
             "email": "pabhishek21@iitk.ac.in",
@@ -1467,6 +1511,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16396,
+            "name": "Agnes Ditto",
+            "email": "agnesd24@iitk.ac.in",
+            "roll_no": "241060002",
+            "program_department_id": 20,
+            "secondary_program_department_id": 0,
+            "company_name": "Saint-Gobain Research India",
+            "profile": "Research Engineer 1 ",
+            "type": "Recruited"
+        },
+        {
             "id": 16403,
             "name": "Tarun Tomer",
             "email": "taruntomer24@iitk.ac.in",
@@ -1500,6 +1555,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16421,
+            "name": "Arpan Samanta",
+            "email": "arpans24@iitk.ac.in",
+            "roll_no": "241080058",
+            "program_department_id": 83,
+            "secondary_program_department_id": 0,
+            "company_name": "Wipro",
+            "profile": "Reimagine Career Possibilities Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 16422,
             "name": "Arunansh Yadav",
             "email": "arunanshy24@iitk.ac.in",
@@ -1508,6 +1574,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Virtusa",
             "profile": "Associate Consultant ",
+            "type": "Recruited"
+        },
+        {
+            "id": 16425,
+            "name": "Anjali Kumari",
+            "email": "anjalik24@iitk.ac.in",
+            "roll_no": "241080053",
+            "program_department_id": 83,
+            "secondary_program_department_id": 0,
+            "company_name": "Wipro",
+            "profile": "Reimagine Career Possibilities Trainee",
             "type": "Recruited"
         },
         {
@@ -1552,6 +1629,17 @@
             "secondary_program_department_id": 0,
             "company_name": "ICICI Bank",
             "profile": ".",
+            "type": "Recruited"
+        },
+        {
+            "id": 16435,
+            "name": "Harsh Deep",
+            "email": "harshdeep24@iitk.ac.in",
+            "roll_no": "241080069",
+            "program_department_id": 83,
+            "secondary_program_department_id": 0,
+            "company_name": "Wipro",
+            "profile": "Reimagine Career Possibilities Trainee",
             "type": "Recruited"
         },
         {
@@ -1706,6 +1794,39 @@
             "secondary_program_department_id": 0,
             "company_name": "American Express",
             "profile": "Management Trainee - Data Science \u0026 Analytics",
+            "type": "Recruited"
+        },
+        {
+            "id": 16458,
+            "name": "Shreyasi Kayam",
+            "email": "shreyasik24@iitk.ac.in",
+            "roll_no": "241080096",
+            "program_department_id": 83,
+            "secondary_program_department_id": 0,
+            "company_name": "Wipro",
+            "profile": "Reimagine Career Possibilities Trainee",
+            "type": "Recruited"
+        },
+        {
+            "id": 16459,
+            "name": "Shreyasi Mondal",
+            "email": "shreyasim24@iitk.ac.in",
+            "roll_no": "241080097",
+            "program_department_id": 83,
+            "secondary_program_department_id": 0,
+            "company_name": "Wipro",
+            "profile": "Reimagine Career Possibilities Trainee",
+            "type": "Recruited"
+        },
+        {
+            "id": 16460,
+            "name": "Sunanda Maity",
+            "email": "sunandam24@iitk.ac.in",
+            "roll_no": "241080102",
+            "program_department_id": 83,
+            "secondary_program_department_id": 0,
+            "company_name": "Wipro",
+            "profile": "Reimagine Career Possibilities Trainee",
             "type": "Recruited"
         },
         {
@@ -2050,6 +2171,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16503,
+            "name": "Kunal Kumar Anand",
+            "email": "kunalk24@iitk.ac.in",
+            "roll_no": "241110040",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "Spotnana",
+            "profile": "Software Engineer",
+            "type": "Recruited"
+        },
+        {
             "id": 16504,
             "name": "Kirandeep Parida",
             "email": "kparida24@iitk.ac.in",
@@ -2149,6 +2281,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16514,
+            "name": "Kumari Ritika",
+            "email": "kritika24@iitk.ac.in",
+            "roll_no": "241110039",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "Centre for Development of Advanced Computing",
+            "profile": "Knowledge Associate (KA3)",
+            "type": "Recruited"
+        },
+        {
             "id": 16515,
             "name": "Khushi Jaydeep Pujara",
             "email": "khushijp24@iitk.ac.in",
@@ -2190,6 +2333,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Barclays",
             "profile": "Risk Graduate Analyst",
+            "type": "Recruited"
+        },
+        {
+            "id": 16519,
+            "name": "Ruchita Rani",
+            "email": "ruchitar24@iitk.ac.in",
+            "roll_no": "241110059",
+            "program_department_id": 18,
+            "secondary_program_department_id": 0,
+            "company_name": "Tata Consultancy Services",
+            "profile": "Researchers/ Research Engineer",
             "type": "Recruited"
         },
         {
@@ -3810,6 +3964,28 @@
             "type": "Recruited"
         },
         {
+            "id": 16804,
+            "name": "Jyotirmoy Haloi",
+            "email": "jyotirmoyh24@iitk.ac.in",
+            "roll_no": "241010030",
+            "program_department_id": 14,
+            "secondary_program_department_id": 14,
+            "company_name": "Tata Consultancy Services",
+            "profile": "Researchers/ Research Engineer",
+            "type": "Recruited"
+        },
+        {
+            "id": 16807,
+            "name": "Adityaraj Ghatge",
+            "email": "adityarajr24@iitk.ac.in",
+            "roll_no": "241010006",
+            "program_department_id": 14,
+            "secondary_program_department_id": 0,
+            "company_name": "Aequs",
+            "profile": "Post Graduate Engineer Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 16808,
             "name": "Akella Venkata Naga Srivatsav",
             "email": "avnagas24@iitk.ac.in",
@@ -3928,6 +4104,17 @@
             "secondary_program_department_id": 0,
             "company_name": "AgniKul Cosmos Private Limited",
             "profile": "Flight Dynamics \u0026 Control",
+            "type": "Recruited"
+        },
+        {
+            "id": 16825,
+            "name": "Prasoon Ravi",
+            "email": "prasoonr24@iitk.ac.in",
+            "roll_no": "241010046",
+            "program_department_id": 14,
+            "secondary_program_department_id": 0,
+            "company_name": "Aequs",
+            "profile": "Post Graduate Engineer Trainee",
             "type": "Recruited"
         },
         {
@@ -4074,6 +4261,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16854,
+            "name": "Dharshan S Hegde",
+            "email": "dharshans24@iitk.ac.in",
+            "roll_no": "241010078",
+            "program_department_id": 14,
+            "secondary_program_department_id": 0,
+            "company_name": "Infosys Limited",
+            "profile": "Engineering Analyst for Core (Turbo Machinery)",
+            "type": "Recruited"
+        },
+        {
             "id": 16856,
             "name": "Sam Matthew R",
             "email": "samr24@iitk.ac.in",
@@ -4096,6 +4294,28 @@
             "type": "Recruited"
         },
         {
+            "id": 16858,
+            "name": "Sunil G",
+            "email": "sunilg24@iitk.ac.in",
+            "roll_no": "241010069",
+            "program_department_id": 14,
+            "secondary_program_department_id": 0,
+            "company_name": "Infosys Limited",
+            "profile": "Engineering Analyst for Core (Turbo Machinery)",
+            "type": "Recruited"
+        },
+        {
+            "id": 16859,
+            "name": "Saravana Kumar S",
+            "email": "saravanak24@iitk.ac.in",
+            "roll_no": "241010057",
+            "program_department_id": 14,
+            "secondary_program_department_id": 0,
+            "company_name": "Aequs",
+            "profile": "Post Graduate Engineer Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 16866,
             "name": "Akshay Anthwal",
             "email": "akshaya24@iitk.ac.in",
@@ -4115,6 +4335,17 @@
             "secondary_program_department_id": 0,
             "company_name": "AgniKul Cosmos Private Limited",
             "profile": "Flight Dynamics \u0026 Control",
+            "type": "Recruited"
+        },
+        {
+            "id": 16869,
+            "name": "Srujana S",
+            "email": "srujanas24@iitk.ac.in",
+            "roll_no": "241010068",
+            "program_department_id": 14,
+            "secondary_program_department_id": 0,
+            "company_name": "Aequs",
+            "profile": "Post Graduate Engineer Trainee",
             "type": "Recruited"
         },
         {
@@ -4283,6 +4514,17 @@
             "type": "Recruited"
         },
         {
+            "id": 16894,
+            "name": "Bhargav Modi",
+            "email": "bhargav24@iitk.ac.in",
+            "roll_no": "241020009",
+            "program_department_id": 17,
+            "secondary_program_department_id": 0,
+            "company_name": "Loxim Industries Limited",
+            "profile": "Pg Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 16896,
             "name": "Piyush Meena",
             "email": "piyushm22@iitk.ac.in",
@@ -4335,6 +4577,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Meesho",
             "profile": "Senior Associate - Business Management Track",
+            "type": "Recruited"
+        },
+        {
+            "id": 16903,
+            "name": "Prabhanshu Choudhary",
+            "email": "prabhanshu22@iitk.ac.in",
+            "roll_no": "220773",
+            "program_department_id": 7,
+            "secondary_program_department_id": 0,
+            "company_name": "Sigmoid Analytics",
+            "profile": "DS Trainee",
             "type": "Recruited"
         },
         {
@@ -4621,6 +4874,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Google India",
             "profile": "Software Engineer, University Graduate, 2026\n",
+            "type": "Recruited"
+        },
+        {
+            "id": 16947,
+            "name": "Punam Singh",
+            "email": "punamsingh22@iitk.ac.in",
+            "roll_no": "220835",
+            "program_department_id": 4,
+            "secondary_program_department_id": 0,
+            "company_name": "Engineers India Limited",
+            "profile": "Management Trainee",
             "type": "Recruited"
         },
         {
@@ -5237,6 +5501,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Accordion (merilytics)",
             "profile": "Analyst 2 – Business",
+            "type": "Recruited"
+        },
+        {
+            "id": 17024,
+            "name": "Aniket Verma",
+            "email": "aniketv24@iitk.ac.in",
+            "roll_no": "241030013",
+            "program_department_id": 16,
+            "secondary_program_department_id": 0,
+            "company_name": "Engineers India Limited",
+            "profile": "Engineer",
             "type": "Recruited"
         },
         {
@@ -8111,6 +8386,17 @@
             "type": "PIO-PPO"
         },
         {
+            "id": 17462,
+            "name": "Dharmendra Jangir",
+            "email": "dharmendra22@iitk.ac.in",
+            "roll_no": "220353",
+            "program_department_id": 8,
+            "secondary_program_department_id": 0,
+            "company_name": "Engineers India Limited",
+            "profile": "Management Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 17463,
             "name": "Dhananjay Dixit",
             "email": "dhananjayd22@iitk.ac.in",
@@ -9266,6 +9552,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17626,
+            "name": "Deepak Singh",
+            "email": "deepaks24@iitk.ac.in",
+            "roll_no": "241070009",
+            "program_department_id": 107,
+            "secondary_program_department_id": 0,
+            "company_name": "Loxim Industries Limited",
+            "profile": "Pg Trainee",
+            "type": "Recruited"
+        },
+        {
             "id": 17638,
             "name": "Burhanuddin Merchant",
             "email": "bmerchant22@iitk.ac.in",
@@ -9332,6 +9629,17 @@
             "type": "Recruited"
         },
         {
+            "id": 17650,
+            "name": "Hardikkumar Tulshibhai Mavani",
+            "email": "hardikkmr24@iitk.ac.in",
+            "roll_no": "241020013",
+            "program_department_id": 17,
+            "secondary_program_department_id": 0,
+            "company_name": "Tata Consultancy Services",
+            "profile": "Researchers/ Research Engineer",
+            "type": "Recruited"
+        },
+        {
             "id": 17651,
             "name": "Siddharth Pal",
             "email": "siddharthp24@iitk.ac.in",
@@ -9351,6 +9659,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Raspa Pharma Private Limited",
             "profile": "Senior Research Associate, Bioprocess Engineering",
+            "type": "Recruited"
+        },
+        {
+            "id": 17656,
+            "name": "Ravindra Ramesh Lokhande",
+            "email": "ravindra24@iitk.ac.in",
+            "roll_no": "241020024",
+            "program_department_id": 17,
+            "secondary_program_department_id": 0,
+            "company_name": "Aequs",
+            "profile": "Post Graduate Engineer Trainee",
             "type": "Recruited"
         },
         {
@@ -9395,6 +9714,28 @@
             "secondary_program_department_id": 0,
             "company_name": "SPECTRUM Techno Consultants Pvt Ltd",
             "profile": "Trainee Design Engineer - Structures",
+            "type": "Recruited"
+        },
+        {
+            "id": 17669,
+            "name": "Sunkara Sumanth",
+            "email": "sunkaras24@iitk.ac.in",
+            "roll_no": "241020034",
+            "program_department_id": 17,
+            "secondary_program_department_id": 0,
+            "company_name": "Tata Consultancy Services",
+            "profile": "Researchers/ Research Engineer",
+            "type": "Recruited"
+        },
+        {
+            "id": 17674,
+            "name": "Chetan Chouhan",
+            "email": "chetanc24@iitk.ac.in",
+            "roll_no": "241050025",
+            "program_department_id": 21,
+            "secondary_program_department_id": 0,
+            "company_name": "Centre for Development of Advanced Computing",
+            "profile": "Knowledge Associate (KA5)",
             "type": "Recruited"
         },
         {
@@ -9813,6 +10154,17 @@
             "secondary_program_department_id": 0,
             "company_name": "Reliance Industries Limited",
             "profile": "Post Graduate Engineering Trainee (PGET)",
+            "type": "Recruited"
+        },
+        {
+            "id": 17850,
+            "name": "Vimal Singh",
+            "email": "vimals24@iitk.ac.in",
+            "roll_no": "241020044",
+            "program_department_id": 17,
+            "secondary_program_department_id": 0,
+            "company_name": "Tata Consultancy Services",
+            "profile": "Researchers/ Research Engineer",
             "type": "Recruited"
         },
         {
